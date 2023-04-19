@@ -1,0 +1,15 @@
+.nav {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color:   #00828c ;
+    
+}
+.mx-auto{
+    display: flex;
+    gap: 3em;
+    font-size: 20px;
+}
+
+.logo{
+    width: 10vw;
+}
+

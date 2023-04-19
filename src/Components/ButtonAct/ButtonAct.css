@@ -1,4 +1,5 @@
-.loginSendDeac {
+.loginSendDeac,
+.registerSendDeac {
 
     width: 5em;
     height: 1.5em;
@@ -13,14 +14,16 @@
     align-items: center;
 }
 
-.loginSendAct {
+.loginSendAct,
+.registerSendAct {
 
     cursor: pointer;
     background-color: #00828c;
     
 }
 
-.loginSendAct:hover {
+.loginSendAct:hover,
+.registerSendAct:hover {
 
     transition: 1s;
     background-color: #00828c;

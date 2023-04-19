@@ -9,7 +9,7 @@ export const NavBar = () => {
     <>
     <Navbar expand="lg" className='nav'>
       <Container>
-      <Navbar.Brand as= {Link} to = "/">
+      <Navbar.Brand as= {Link} to = "/home">
       <img src={Logo} className='logo'/>
       </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

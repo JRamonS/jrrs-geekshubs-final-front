@@ -23,7 +23,7 @@ export const userSlice = createSlice({
     
 });
 
-//exporto las ACCIONES.....
+//I export the ACTIONS.....
 export const { login, userout } = userSlice.actions;
 
 export const userData = (state) => state.user;

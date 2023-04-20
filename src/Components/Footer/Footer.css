@@ -1,0 +1,21 @@
+.Foot{
+    background-color: #3ba38c;
+  
+}
+
+.W1{
+    display: flex;
+    justify-content:flex-end;
+}
+.W2{
+    display:flex;
+    justify-content: center;
+}
+.W3{
+    display: flex;
+    justify-content: flex-start;
+}
+.Copy{
+    display:flex;
+    justify-content: center;
+}

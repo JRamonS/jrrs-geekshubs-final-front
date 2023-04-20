@@ -112,8 +112,8 @@ export const Register = () => {
   }
 
   return (
-    <div>
-    <Container>
+    <div className="registerDesign">
+    <Container className="inputDesigns">
       <Row>
         <Col>
           <Form>
@@ -164,7 +164,7 @@ export const Register = () => {
                   validateFunction={(e) => inputValidate(e)}
                 />
                 <Form.Text className="text-danger">
-                  {credencialesError.nameError}
+                  {credencialesError.emailError}
                 </Form.Text>
             </Form.Group>
           </Form>
@@ -223,7 +223,7 @@ export const Register = () => {
                 </Form.Text>
             </Form.Group>
 
-            <div className="act mt-4">    
+            <div className=" mt-4">    
             <ButtonAct 
               className={registerAct ? "registerSendDeac loginSendAct" : "registerSendDeac"}
               buttonName="Register"

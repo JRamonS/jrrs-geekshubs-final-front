@@ -3,22 +3,22 @@
 
     width: 5em;
     height: 1.5em;
-    background-color: #00828c;
+    background-color:  #3ba38c;
     font-size: 20px;
     border-radius: 20px;
     border: solid 2px black;
     font-family: 'Myfont';
-
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .loginSendAct,
 .registerSendAct {
 
     cursor: pointer;
-    background-color: #00828c;
+    background-color:  #337b6b;
     
 }
 
@@ -26,5 +26,5 @@
 .registerSendAct:hover {
 
     transition: 1s;
-    background-color: #00828c;
+    background-color: #2e5e54 ;
 }

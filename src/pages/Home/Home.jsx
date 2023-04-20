@@ -1,9 +1,9 @@
 import React from 'react'
-"./Home.css"
+import "./Home.css"
 
 export const Home = () => {
   return (
-    <div>
+    <div className='bge'>
       <h1>Hola Soy Home</h1>
     </div>
   )

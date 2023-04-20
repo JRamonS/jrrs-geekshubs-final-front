@@ -7,9 +7,12 @@
     display: flex;
     gap: 3em;
     font-size: 20px;
+    font-family: 'Myfont';
 }
 
 .logo{
-    width: 10vw;
+    width: 7vw;
 }
+
+
 

@@ -1,0 +1,29 @@
+.registerDesign{
+    background-color:   #00828c ;
+    height: 56vh;
+    font-family: "Myfont";
+    color: #fff;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.inputDesigns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.registerSendAct {
+    cursor: pointer;
+    background-color:  #337b6b;
+}
+
+.registerSendAct:hover,
+.registerSendDeac:hover {
+    transition: 1s;
+    background-color: #2e5e54 ;
+}
+
+

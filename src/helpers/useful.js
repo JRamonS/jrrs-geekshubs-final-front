@@ -15,8 +15,8 @@ export const validate = (name, data, required) => {
       } else if (!/[a-z]/gi.test(data)) {
         return { message: "Please fill with a valid text", validated: false };
       }
-
       return { message: "", validated: true };
+
 
     case "email":
     case "e-mail":
@@ -28,18 +28,27 @@ export const validate = (name, data, required) => {
       ) {
         return { message: "Invalid e-mail format", validated: false };
       }
-
       return { message: "", validated: true };
 
-    case "password":
-    case "contraseña":
-      if (data === "" && required === true) {
-        return { message: "Please fill the field", validated: false };
-      } else if (!/[\d()+-]/g.test(data)) {
-        return { message: "Invalid password format", validated: false };
-      }
-
-      return { message: "", validated: true };
+      
+      case "password":
+      case "contraseña":
+      const lowerCaseLetters = /[a-z]/g;
+      const upperCaseLetters = /[A-Z]/g;
+      const numbers = /[0-9]/g;
+    if (data === "" && required === true) {
+          return { message: "Please, fill the field", validated: false };
+        } else if (data.length < 8) {
+            return { message: "The password must have at least eight characters", validated: false};
+        } else if (!data.match(upperCaseLetters)) {
+          return { message: "The password must have at least one uppercase letter", validated: false};
+        } else if (!data.match(lowerCaseLetters)) {
+          return { message: "The password must have at least one lowercase letter", validated: false};
+        } else if (!data.match(numbers)) {
+          return { message: "The password must have at least one number", validated: false};
+        } else {
+          return { message: "", validated: true };
+        }
 
     case "phone":
     case "tfno":
@@ -49,7 +58,7 @@ export const validate = (name, data, required) => {
     case "postcode":
       if (data === "" && required === true) {
         return { message: "Please fill the field", validated: false };
-      } else if (!/[\d()+-]/g.test(data)) {
+      } else if (!/^\+?\d{0,3}\s?\d{6,}$/) {
         return { message: "Invalid phone format", validated: false };
       }
       return { message: "", validated: true };

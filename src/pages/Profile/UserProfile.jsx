@@ -4,6 +4,7 @@ import { userData } from '../userSlice';
 import { useNavigate } from 'react-router';
 import { getUserData } from '../../Services/apiCalls';
 import { Col, Row } from 'react-bootstrap';
+import "./UserProfile.css"
 
 export const UserProfile = () => {
 
@@ -21,9 +22,12 @@ export const UserProfile = () => {
   //This useEffect will ALWAYS be executed whenever there are changes to the credentials hook.
   useEffect(() => {
     if (user.name === "") {
-      getUserData(ReduxCredentials.credentials.token)
+      // console.log(ReduxCredentials.credentials.token.token);
+      getUserData(ReduxCredentials.credentials.token.token)
         .then((reply) => {
+          console.log(reply);
           setUser({
+            
             name: reply?.data?.data?.name,
             surname: reply?.data?.data?.surname,
             email: reply?.data?.data?.email,
@@ -31,10 +35,13 @@ export const UserProfile = () => {
             phone: reply?.data?.data?.phone,
           });
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log("Error en getUserData:", error));
     }
 
-    console.log(ReduxCredentials.credentials.token.data);
+    console.log(user);
+
+   
+    
     
   }, []);
 

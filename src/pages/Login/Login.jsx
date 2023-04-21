@@ -42,10 +42,11 @@ export const Login = () => {
     userLogin(credentials)
         .then(
           reply => {
-            console.log(reply.data.token);
+            
             let datosBackend = {
               token:reply.data
             };
+            // console.log(reply.data.data);
             dispatch(login({credentials: datosBackend}));
             setTimeout(() => {
               navigate ('/userProfile')

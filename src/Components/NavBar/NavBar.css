@@ -5,7 +5,7 @@
 }
 .mx-auto{
     display: flex;
-    gap: 3em;
+    gap: 1.5em;
     font-size: 20px;
     font-family: 'Myfont';
 }

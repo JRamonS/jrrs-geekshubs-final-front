@@ -40,6 +40,7 @@ export const NavBar = () => {
               <Nav.Link as={Link} to="/petRegistration" className="text-white ">PetRegistration</Nav.Link>
               <Nav.Link as={Link} to="/appointment" className="text-white ">Appointment</Nav.Link>
               <Nav.Link as={Link} to="/seeAppointment" className="text-white ">SeeAppointment</Nav.Link>
+              <Nav.Link as={Link} to="/seePet" className="text-white ">SeePet</Nav.Link>
               <Nav.Link as={Link} to="/logout" className="text-white " onClick={() => logout()}>
                 Logout
               </Nav.Link>

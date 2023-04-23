@@ -4,12 +4,12 @@ import { persistReducer } from 'redux-persist';
 
 import thunk from 'redux-thunk';
 import userSlice from '../pages/userSlice';
-// import detailSlice from '../pages/detailSlice';
 import { configureStore } from '@reduxjs/toolkit';
+import detailSlice from '../pages/detailSlice';
 
 const reducers = combineReducers({
     user: userSlice,
-    // detail: detailSlice
+    detail: detailSlice
 })
 
 const persistConfig = {

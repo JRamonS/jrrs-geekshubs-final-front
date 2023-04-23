@@ -9,6 +9,12 @@ import { UserProfile } from '../Profile/UserProfile'
 import { Appointment } from '../Appointment/Appointment'
 import { SeeAppointment } from '../SeeAppointment/SeeAppointment'
 import { PetRegistration } from '../PetRegistration/PetRegistration'
+import { SeePet } from '../SeePet/SeePet'
+
+
+
+
+
 
 
 export const Body = () => {
@@ -23,6 +29,7 @@ export const Body = () => {
         <Route path='/petRegistration' element={<PetRegistration/>}/>
         <Route path='/appointment' element={<Appointment/>}/>
         <Route path='/seeAppointment' element={<SeeAppointment/>}/>
+        <Route path='/seePet' element={<SeePet/>}/>
       </Routes>
     </>
   )

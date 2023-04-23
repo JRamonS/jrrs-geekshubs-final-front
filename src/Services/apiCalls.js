@@ -26,4 +26,14 @@ export const registerUser = async (body) => {
   
   }
 
+  export const bringPets = async (token) => {
+    let config = {
+      headers: { 
+        'Authorization': 'Bearer '+ token,  
+      }
+    };
+
+    return await axios.get(`${root}pets`, config);
+}
+
   

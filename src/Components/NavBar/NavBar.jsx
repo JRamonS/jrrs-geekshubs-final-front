@@ -96,6 +96,9 @@ export const NavBar = () => {
               <Nav.Link as={Link} to="/service" className="text-white">Service</Nav.Link>
               {isLoggedIn && (
                 <>
+                  <Nav.Link as={Link} to="/userProfile" className="text-white">
+                  <div>{ReduxCredentials?.credentials?.token?.data?.name}</div>
+                  </Nav.Link>
                   <Nav.Link as={Link} to="/petRegistration" className="text-white">Pet Registration</Nav.Link>
                   <Nav.Link as={Link} to="/seePet" className="text-white">See Pets</Nav.Link>
                 </>

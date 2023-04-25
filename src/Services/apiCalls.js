@@ -48,4 +48,14 @@ export const newAppointment = async (body, token) => {
 
 }
 
+export const bringAppointments = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+
+  return await axios.get(`${root}appointment`, config);
+}
+
   

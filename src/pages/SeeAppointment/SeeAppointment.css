@@ -1,0 +1,20 @@
+.appointmentDesign{
+    background-color: #00828c;
+}
+
+.nameDising{
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-family: 'Myfont';
+    
+} 
+
+.asClient{
+    color: #00b8b8;
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+
+}
+

@@ -7,11 +7,13 @@ import userSlice from '../pages/userSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import detailSlice from '../pages/detailSlice';
 import petSlice from '../pages/petSlice';
+import appointmentSlice from '../pages/appointmentSlice';
 
 const reducers = combineReducers({
     user: userSlice,
     detail: detailSlice,
     pet: petSlice,
+    appointment: appointmentSlice,
 })
 
 const persistConfig = {

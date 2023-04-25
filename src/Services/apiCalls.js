@@ -36,4 +36,16 @@ export const registerUser = async (body) => {
     return await axios.get(`${root}pets`, config);
 }
 
+export const newAppointment = async (body, token) => {
+
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+
+  return await axios.post(`${root}appointment`, body, config)
+
+}
+
   

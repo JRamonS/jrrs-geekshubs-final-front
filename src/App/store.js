@@ -6,10 +6,12 @@ import thunk from 'redux-thunk';
 import userSlice from '../pages/userSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import detailSlice from '../pages/detailSlice';
+import petSlice from '../pages/petSlice';
 
 const reducers = combineReducers({
     user: userSlice,
-    detail: detailSlice
+    detail: detailSlice,
+    pet: petSlice,
 })
 
 const persistConfig = {

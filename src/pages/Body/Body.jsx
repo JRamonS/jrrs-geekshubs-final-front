@@ -12,6 +12,7 @@ import { PetRegistration } from '../PetRegistration/PetRegistration'
 import { SeePet } from '../SeePet/SeePet'
 import { UpdateApp } from '../UpdateApp/UpdateApp'
 import { DeleteApp } from '../DeleteApp/DeleteApp'
+import { AdmUser } from '../AdmUser/AdmUser'
 
 
 
@@ -34,6 +35,7 @@ export const Body = () => {
         <Route path='/seePet' element={<SeePet/>}/>
         <Route path='/updateApp/:id' element={<UpdateApp/>}/>
         <Route path='/deleteApp/:id' element={<DeleteApp/>}/>
+        <Route path='/admUser' element={<AdmUser/>}/>
       </Routes>
     </>
   )

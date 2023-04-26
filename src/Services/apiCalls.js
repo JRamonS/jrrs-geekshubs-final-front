@@ -71,17 +71,6 @@ export const modifyApp = async (body, token) => {
 }
 
 
-// export const deleteApp = async (body, token) => {
-//   let config = {
-//     headers: { 
-//       'Authorization': 'Bearer '+ token,  
-//     }
-//   };
-//   console.log(body, config);
-//   return await axios.delete(`${root}appointment`, body, config)
-  
-// }
-
 export const deleteApp = async (body, token) => {
   let config = {
     headers: { 
@@ -89,6 +78,16 @@ export const deleteApp = async (body, token) => {
     },
     data: body
   };
-  
+
   return await axios.delete(`${root}appointment`, config)
+}
+
+export const bringAllUsers = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+
+  return await axios.get(`${root}users/admin`, config);
 }

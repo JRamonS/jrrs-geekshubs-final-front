@@ -60,7 +60,6 @@ export const bringAppointments = async (token) => {
 
 
 export const modifyApp = async (body, token) => {
-  console.log(token);
   let config = {
     headers: { 
       'Authorization': 'Bearer '+ token,  
@@ -71,4 +70,25 @@ export const modifyApp = async (body, token) => {
 
 }
 
+
+// export const deleteApp = async (body, token) => {
+//   let config = {
+//     headers: { 
+//       'Authorization': 'Bearer '+ token,  
+//     }
+//   };
+//   console.log(body, config);
+//   return await axios.delete(`${root}appointment`, body, config)
   
+// }
+
+export const deleteApp = async (body, token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    },
+    data: body
+  };
+  
+  return await axios.delete(`${root}appointment`, config)
+}

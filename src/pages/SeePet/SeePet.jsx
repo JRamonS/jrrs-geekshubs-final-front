@@ -125,6 +125,9 @@ export const SeePet = () => {
                           <Link to={`/updateApp/${pet.id}`}>
                             UpdateAppointment
                           </Link>
+                          <Link to={`/deleteApp/${pet.id}`}>
+                            DeleteAppointment
+                          </Link>
                         </>
                       )}
                   </Card.Body>
@@ -142,6 +145,7 @@ export const SeePet = () => {
             <Link to={`/appointment/${selectedPet.id}`}>Appointment</Link>
             <Link to={`/seeAppointment/${selectedPet.id}`}>SeeAppointment</Link>
             <Nav.Link as={Link} to={`/updateApp/${selectedPet.id}`} className="text-white">Update Appointments</Nav.Link>
+            <Nav.Link as={Link} to={`/deleteApp/${selectedPet.id}`} className="text-white">Delete Appointments</Nav.Link>
           </>
         )}
     </div>

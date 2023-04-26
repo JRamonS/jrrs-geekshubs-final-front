@@ -122,6 +122,9 @@ export const SeePet = () => {
                           <Link to={`/seeAppointment/${pet.id}`}>
                             SeeAppointment
                           </Link>
+                          <Link to={`/updateApp/${pet.id}`}>
+                            UpdateAppointment
+                          </Link>
                         </>
                       )}
                   </Card.Body>
@@ -138,6 +141,7 @@ export const SeePet = () => {
           <>
             <Link to={`/appointment/${selectedPet.id}`}>Appointment</Link>
             <Link to={`/seeAppointment/${selectedPet.id}`}>SeeAppointment</Link>
+            <Nav.Link as={Link} to={`/updateApp/${selectedPet.id}`} className="text-white">Update Appointments</Nav.Link>
           </>
         )}
     </div>

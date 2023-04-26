@@ -58,4 +58,17 @@ export const bringAppointments = async (token) => {
   return await axios.get(`${root}appointment`, config);
 }
 
+
+export const modifyApp = async (body, token) => {
+  console.log(token);
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+
+  return await axios.put(`${root}appointment`, body, config)
+
+}
+
   

@@ -25,7 +25,6 @@ export const UserProfile = () => {
       // console.log(ReduxCredentials.credentials.token.token);
       getUserData(ReduxCredentials.credentials.token.token)
         .then((reply) => {
-          console.log(reply);
           setUser({
             
             name: reply?.data?.data?.name,
@@ -38,7 +37,7 @@ export const UserProfile = () => {
         .catch((error) => console.log("Error en getUserData:", error));
     }
 
-    console.log(user);
+    
 
    
     

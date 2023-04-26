@@ -107,6 +107,7 @@ export const NavBar = () => {
                 <>
                   <Nav.Link as={Link} to={`/appointment/${selectedPet.id}`} className="text-white">Appointment</Nav.Link>
                   <Nav.Link as={Link} to={`/seeAppointment/${selectedPet.id}`} className="text-white">See Appointments</Nav.Link>
+                  <Nav.Link as={Link} to={`/updateApp/${selectedPet.id}`} className="text-white">Update Appointments</Nav.Link>
                 </>
               )}
               {isLoggedIn ? (

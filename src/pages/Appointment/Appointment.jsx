@@ -77,7 +77,7 @@ export const Appointment = () => {
   const bookApp = () => {
     newAppointment(infoAppointment, credentialsRdx.credentials.token.token);
     setTimeout(() => {
-      navigate("/seeAppointment");
+      navigate("/seeAppointment/:id");
     }, 500);
   };
 

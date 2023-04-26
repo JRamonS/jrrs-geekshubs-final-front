@@ -22,7 +22,6 @@ export const SeeAppointment = () => {
       setTimeout(() => {
         bringAppointments(credentialsRdx.credentials.token.token)
           .then((result) => {
-              console.log(result.data.data);
             setLoading(false);
 
             if (result.data.data.length === 0) {
@@ -38,7 +37,7 @@ export const SeeAppointment = () => {
   const appointmentSelected = (appointmentPet) => {
     dispatch(addChoosenAppointment({ choosenAppointment: appointmentPet}))
     setTimeout(() => {
-      navigate('/modify/appointment');
+      navigate('/updateApp/:id');
     }, 500);
 
     if (loading){
@@ -57,16 +56,16 @@ export const SeeAppointment = () => {
       <div><h2 className='nameDising'>Your Appointments</h2>
       {appointments.length > 0 ? (
         <div>
-          {appointments.map((appointment) => {
+          {appointments.map((appointmentPet) => {
             return (
-              <Container className='asClient' key={appointment.id}>
-                <Card>
+              <Container className='asClient' key={appointmentPet.id}>
+                <Card onClick={() => appointmentSelected(appointmentPet)}>
                   <Card.Body>
-                    <Card.Title>Pet:&nbsp;{appointment.pet.name} </Card.Title>
-                    <Card.Title>Date:&nbsp;{dayjs(appointment.dateTime).format("DD-MMM-hh")}</Card.Title>
-                    <Card.Title>Service:&nbsp;{appointment.service.name} </Card.Title>
-                    <Card.Title>Duration:&nbsp;{appointment.service.duration} </Card.Title>
-                    <Card.Title>Price:&nbsp;{appointment.service.price} </Card.Title>
+                    <Card.Title>Pet:&nbsp;{appointmentPet.pet.name} </Card.Title>
+                    <Card.Title>Date:&nbsp;{dayjs(appointmentPet.dateTime).format("DD-MMM-hh")}</Card.Title>
+                    <Card.Title>Service:&nbsp;{appointmentPet.service.name} </Card.Title>
+                    <Card.Title>Duration:&nbsp;{appointmentPet.service.duration} </Card.Title>
+                    <Card.Title>Price:&nbsp;{appointmentPet.service.price} </Card.Title>
                   </Card.Body>
                 </Card>
               </Container>

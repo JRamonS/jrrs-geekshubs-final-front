@@ -53,9 +53,6 @@ export const Register = () => {
     }));
   };
 
-  //Welcome  after user registration
-  const [welcome, setWelcome] = useState("");
-
   //Check if any errors are found, if so, set to false otherwise set to true.
   useEffect(() => {
     for (let error in credencialesError) {
@@ -111,6 +108,7 @@ export const Register = () => {
         ).catch(error => console.log(error))
   }
 
+  //Rendered from the view
   return (
     <div className="registerDesign">
     <Container className="inputDesigns">

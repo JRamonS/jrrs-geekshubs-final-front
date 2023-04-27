@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import "./PetRegistration.css"
 import { Form, Button } from "react-bootstrap";
-import { registerPet } from "../../Services/apiCalls";
+import { registerPet } from "../../../Services/apiCalls";
 import { useSelector } from "react-redux";
-import { userData } from "../userSlice";
+import { userData } from "../../userSlice";
 import { useNavigate } from "react-router-dom";
 
 export const PetRegistration = () => {
@@ -48,6 +49,7 @@ export const PetRegistration = () => {
   
 
   return (
+  <div className="petDesign formDesigns">
     <Form onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Label>Name</Form.Label>
@@ -98,10 +100,11 @@ export const PetRegistration = () => {
         </Form.Control>
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="success" type="submit">
         Register
       </Button>
     </Form>
+  </div>
   );
 };
 

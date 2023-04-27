@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
-import { appointmentData } from '../appointmentSlice';
-import { deleteApp } from '../../Services/apiCalls';
+import { appointmentData } from '../../appointmentSlice';
+import { deleteApp } from '../../../Services/apiCalls';
 import { Col, Container, Row } from 'react-bootstrap';
-import { userData } from '../userSlice';
+import { userData } from '../../userSlice';
 
 export const DeleteApp = () => {
   const navigate = useNavigate();

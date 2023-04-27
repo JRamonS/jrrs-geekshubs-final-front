@@ -64,11 +64,11 @@
 import React, { useEffect, useState } from "react";
 import "./SeePet.css";
 import { useDispatch, useSelector } from "react-redux";
-import { userData } from "../userSlice";
+import { userData } from "../../userSlice";
 import { Link, useNavigate } from "react-router-dom";
-import { bringPets } from "../../Services/apiCalls";
+import { bringPets } from "../../../Services/apiCalls";
 import { Card, Container } from "react-bootstrap";
-import { addChoosenPet } from "../petSlice";
+import { addChoosenPet } from "../../petSlice";
 
 export const SeePet = () => {
   const [pet, setPet] = useState([]);

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Appointment.css";
 import { useNavigate } from "react-router-dom";
-import { newAppointment } from "../../Services/apiCalls";
+import { newAppointment } from "../../../Services/apiCalls";
 import { Col, Container, Form, Row } from "react-bootstrap";
-import { InputText } from "../../Components/InputText/InputText";
+import { InputText } from "../../../Components/InputText/InputText";
 import { useSelector } from "react-redux";
-import { userData } from "../userSlice";
-import { petData } from "../petSlice";
+import { userData } from "../../userSlice";
+import { petData } from "../../petSlice";
 
 export const Appointment = () => {
   const navigate = useNavigate();

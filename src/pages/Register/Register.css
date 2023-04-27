@@ -3,9 +3,7 @@
     height: 56vh;
     font-family: "Myfont";
     color: #fff;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    
 }
 
 .inputDesigns{
@@ -25,5 +23,6 @@
     transition: 1s;
     background-color: #2e5e54 ;
 }
+
 
 

@@ -14,16 +14,19 @@ export const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  //Hook
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
 
+  //Hook Validation
   const [valiCredentials, setValiCredentials] = useState({
     emailVali: false,
     passwordVali: false,
   });
 
+  //Hook CkeckError
   const [credentialsError, setCredentialsError] = useState({
     emailError: "",
     passwordError: "",
@@ -31,6 +34,8 @@ export const Login = () => {
 
   const [loginAct, setLoginAct] = useState(false);
 
+
+  //Handler
   const inputHandler = (e) => {
     setCredentials((prevState) => ({
       ...prevState,
@@ -38,6 +43,8 @@ export const Login = () => {
     }));
   };
   
+
+  //Call from Api
   const initialize = () => {
     userLogin(credentials)
         .then(
@@ -81,6 +88,7 @@ export const Login = () => {
     }
   };
 
+  //Check if any errors are found, if so, set to false otherwise set to true.
   useEffect(() => {
     for (let error in credentialsError) {
       if (credentialsError[error] !== "") {
@@ -105,6 +113,7 @@ export const Login = () => {
     setLoginAct(true);
   });
 
+   //This function is executed when the user clicks outside the input or presses the "Tab" key, and validate the data entered by the user.
   const checkError = (e) => {
     let error = "";
 
@@ -125,6 +134,7 @@ export const Login = () => {
     }));
   };
 
+  //Rendered from the view
   return (
     <div className="loginDesing">
       <Container className="loginContainer"> 

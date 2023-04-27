@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import "./SeeAppointment.css"
 import { useDispatch, useSelector } from 'react-redux';
-import { userData } from '../userSlice';
+import { userData } from '../../userSlice';
 import { useNavigate } from 'react-router';
-import { bringAppointments } from '../../Services/apiCalls';
-import { addChoosenAppointment } from '../appointmentSlice';
+import { bringAppointments } from '../../../Services/apiCalls';
+import { addChoosenAppointment } from '../../appointmentSlice';
 import { Card, Container, Spinner } from 'react-bootstrap';
 import dayjs from 'dayjs';
 

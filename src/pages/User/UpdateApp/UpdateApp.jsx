@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react'
 import "./UpdateApp.css"
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux';
-import { appointmentData } from '../appointmentSlice';
-import { modifyApp } from '../../Services/apiCalls';
+import { appointmentData } from '../../appointmentSlice';
+import { modifyApp } from '../../../Services/apiCalls';
 import { Col, Container, Row } from 'react-bootstrap';
-import { InputText } from '../../Components/InputText/InputText';
-import { userData } from '../userSlice';
+import { InputText } from '../../../Components/InputText/InputText';
+import { userData } from '../../userSlice';
 
 
 export const UpdateApp = () => {

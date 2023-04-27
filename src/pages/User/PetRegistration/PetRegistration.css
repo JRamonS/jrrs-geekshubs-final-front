@@ -1,0 +1,28 @@
+.petDesign{
+    background-color:   #00828c ;
+    height: 56vh;
+    font-family: "Myfont";
+    color: #fff;
+}
+
+.formDesigns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  .buttonDesing{
+    width: 5em;
+    background-color:  #3ba38c;
+    font-size: 20px;
+    border-radius: 20px;
+    border: solid 2px black;
+    font-family: 'Myfont';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  

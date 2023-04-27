@@ -46,7 +46,6 @@ export const Login = () => {
             let datosBackend = {
               token:reply.data
             };
-            // console.log(reply.data.data);
             dispatch(login({credentials: datosBackend}));
             setTimeout(() => {
               navigate ('/userProfile')
@@ -127,9 +126,9 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <Container>
-      <Row>
+    <div className="loginDesing">
+      <Container className="loginContainer"> 
+      <Row className='loginRow loginContainer'>
         <Col>
           <Form>
             <Form.Group controlId="formBasicEmail">

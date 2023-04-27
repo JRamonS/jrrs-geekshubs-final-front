@@ -1,0 +1,16 @@
+.loginDesing{
+    background-color: #00828c;
+    color: white;
+    font-family: "Myfont";
+}
+
+
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginRow{
+    height: 56vh;
+}

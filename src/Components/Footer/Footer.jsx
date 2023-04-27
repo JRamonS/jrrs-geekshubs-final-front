@@ -20,12 +20,12 @@ export const Footer = () => {
     <Col className='margin mt-2 text-center'>
         <h4>Open Time</h4>
         <p> <i className="bi bi-telephone"></i> Monday to Friday: 08:00 – 17:00</p>
-        <p> <i className="bi bi-envelope-open-heart"></i> Saturday and Sunday: </p>
+        <p> <i className="bi bi-envelope-open-heart"></i> Saturday and Sunday: Closed</p>
         </Col>
     <Col className='margin mt-2 text-center'>
             <h4>CONTACT</h4>
             <p><i className="bi bi-clock"></i> +34 643 426 671</p>
-            <p> info@laelectronica@gmail.com </p>
+            <p> info@happypetz@gmail.com </p>
         </Col>
     <Row>
         <Col className='Copy mt-2'>

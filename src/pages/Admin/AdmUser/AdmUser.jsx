@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { userData } from '../userSlice';
+import { userData } from '../../userSlice';
 import { useNavigate } from 'react-router-dom';
-import { bringAllUsers } from '../../Services/apiCalls';
+import { bringAllUsers } from '../../../Services/apiCalls';
 import { Card, Container } from 'react-bootstrap';
 
 export const AdmUser = () => {

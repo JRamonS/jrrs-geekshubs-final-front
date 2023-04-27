@@ -12,8 +12,9 @@ import { PetRegistration } from '../PetRegistration/PetRegistration'
 import { SeePet } from '../SeePet/SeePet'
 import { UpdateApp } from '../UpdateApp/UpdateApp'
 import { DeleteApp } from '../DeleteApp/DeleteApp'
-import { AdmUser } from '../AdmUser/AdmUser'
-import { AdmApp } from '../AdmApp/AdmApp'
+import { AdmUser } from '../Admin/AdmUser/AdmUser'
+import { AdmApp } from '../Admin/AdmApp/AdmApp'
+import { DeleteUser } from '../Admin/DeleteUser/DeleteUser'
 
 
 
@@ -38,6 +39,7 @@ export const Body = () => {
         <Route path='/deleteApp/:id' element={<DeleteApp/>}/>
         <Route path='/admUser' element={<AdmUser/>}/>
         <Route path='/admApp' element={<AdmApp/>}/>
+        <Route path='/deleteUser' element={<DeleteUser/>}/>
       </Routes>
     </>
   )

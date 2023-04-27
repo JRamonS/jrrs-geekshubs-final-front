@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 import "./AdmApp.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { userData } from '../userSlice';
-import { bringAllUAppointments } from '../../Services/apiCalls';
-import { addChoosenAppointment } from '../appointmentSlice';
+import { userData } from '../../userSlice';
+import { bringAllUAppointments } from '../../../Services/apiCalls';
+import { addChoosenAppointment } from '../../appointmentSlice';
 import { Card, Container } from 'react-bootstrap';
 
 export const AdmApp = () => {

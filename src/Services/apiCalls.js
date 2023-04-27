@@ -91,3 +91,13 @@ export const bringAllUsers = async (token) => {
 
   return await axios.get(`${root}users/admin`, config);
 }
+
+export const bringAllUAppointments = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+
+  return await axios.get(`${root}appointments/admin`, config);
+}

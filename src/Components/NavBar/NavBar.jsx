@@ -47,6 +47,7 @@ export const NavBar = () => {
                   <div>{ReduxCredentials?.credentials?.token?.data?.name}</div>
                   </Nav.Link>
                   <Nav.Link as={Link} to="/admUser" className="text-white">Admin User</Nav.Link>
+                  <Nav.Link as={Link} to="/admApp" className="text-white">Admin App</Nav.Link>
                 </> 
               )}
               {selectedPet && isLoggedIn && (

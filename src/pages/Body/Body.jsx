@@ -13,6 +13,7 @@ import { SeePet } from '../SeePet/SeePet'
 import { UpdateApp } from '../UpdateApp/UpdateApp'
 import { DeleteApp } from '../DeleteApp/DeleteApp'
 import { AdmUser } from '../AdmUser/AdmUser'
+import { AdmApp } from '../AdmApp/AdmApp'
 
 
 
@@ -36,6 +37,7 @@ export const Body = () => {
         <Route path='/updateApp/:id' element={<UpdateApp/>}/>
         <Route path='/deleteApp/:id' element={<DeleteApp/>}/>
         <Route path='/admUser' element={<AdmUser/>}/>
+        <Route path='/admApp' element={<AdmApp/>}/>
       </Routes>
     </>
   )

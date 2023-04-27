@@ -101,3 +101,14 @@ export const bringAllUAppointments = async (token) => {
 
   return await axios.get(`${root}appointments/admin`, config);
 }
+
+export const deleteAllClient = async (body, token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    },
+    data: body
+  };
+
+  return await axios.delete(`${root}users`, config);
+}

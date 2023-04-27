@@ -16,6 +16,8 @@ export const NavBar = () => {
   };
 
   const [selectedPet, setSelectedPet] = useState(null);
+  const [deleteUser, setDeleteUser] = useState(null);
+
 
   const isLoggedIn = ReduxCredentials?.credentials?.token?.data !== undefined;
   const isAdmin = ReduxCredentials?.credentials?.token?.data?.role_id === 2;
@@ -50,6 +52,13 @@ export const NavBar = () => {
                   <Nav.Link as={Link} to="/admApp" className="text-white">Admin App</Nav.Link>
                 </> 
               )}
+
+              {deleteUser && isAdmin  && (
+                <>
+                  <Nav.Link as={Link} to={`/deleteUser/${deleteUser.id}`} className="text-white">Delete User</Nav.Link>
+                </>
+                )}
+              
               {selectedPet && isLoggedIn && (
                 <>
                   <Nav.Link as={Link} to={`/appointment/${selectedPet.id}`} className="text-white">Appointment</Nav.Link>

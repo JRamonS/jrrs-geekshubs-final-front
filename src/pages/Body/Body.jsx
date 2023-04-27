@@ -39,7 +39,7 @@ export const Body = () => {
         <Route path='/deleteApp/:id' element={<DeleteApp/>}/>
         <Route path='/admUser' element={<AdmUser/>}/>
         <Route path='/admApp' element={<AdmApp/>}/>
-        <Route path='/deleteUser' element={<DeleteUser/>}/>
+        <Route path='/deleteUser/:id' element={<DeleteUser/>}/>
       </Routes>
     </>
   )

@@ -1,0 +1,16 @@
+.updateDesing{
+    background-color: #00828c;
+    color: white;
+    font-family: "Myfont";
+}
+
+
+.updateContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.updateRow{
+    height: 56vh;
+}

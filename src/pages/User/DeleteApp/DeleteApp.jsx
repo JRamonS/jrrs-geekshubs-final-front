@@ -5,6 +5,8 @@ import { appointmentData } from '../../appointmentSlice';
 import { deleteApp } from '../../../Services/apiCalls';
 import { Col, Container, Row } from 'react-bootstrap';
 import { userData } from '../../userSlice';
+import { ButtonAct } from '../../../Components/ButtonAct/ButtonAct';
+import "./DeleteApp.css"
 
 export const DeleteApp = () => {
   const navigate = useNavigate();
@@ -27,46 +29,32 @@ export const DeleteApp = () => {
   };
 
 
-  return (
-    <div className="h">
-      <Container className="mt-5 mb-5">
-        <Row className="mb-3 rowDesign">
-          <Col id="formGridDate">
-            <div className="d-flex flex-column">
-              <p className="pe-4 nameFieldDesign text-center">
-                Are you sure you want to delete this appointment?
-              </p>
+return (
+  <div className="updateDesing">
+    <Container>
+      <Row className='deleteRow'>
+        <Col>
+          <div className="text-center mt-5">
+            <p>Are you sure you want to delete this appointment?</p>
+          </div>
+          <div className="mt-5">    
+            <ButtonAct
+              className={deleteAppointmentAct ? "registerSendDeac loginSendAct" : "registerSendDeac"}
+              buttonName="YES"
+              onClick={deleteAppointmentAct ? deleteAppointment : () => {}}
+            />
             </div>
-          </Col>
-        </Row>
-
-        <Row className="mb-3  d-flex justify-content-center">
-          <button
-            type="submit"
-            className={
-              deleteAppointmentAct
-                ? 'deleteAppointmentSendDeac'
-                : 'deleteAppointmentAct'
-            }
-            onClick={deleteAppointment}
-          >
-            Yes
-          </button>
-          <button
-            type="submit"
-            className={
-              deleteAppointmentAct
-              ? 'deleteAppointmentSendDeac'
-              : 'deleteAppointmentAct'
-            }
-            onClick={() => navigate('/seeAppointment/:id')}
-          >
-            No
-          </button>
-        </Row>
-      </Container>
-    </div>
-  );
-};
-
+            <div className="mt-5">
+            <ButtonAct
+              className={deleteAppointmentAct ? "registerSendDeac loginSendAct" : "registerSendDeac"}
+              buttonName="NO"
+              onClick={() => navigate('/seeAppointment/:id')}
+            />
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  </div>
+);
+}
 

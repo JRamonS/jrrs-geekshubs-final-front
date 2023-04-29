@@ -111,9 +111,9 @@ export const UpdateApp = () => {
 
 
   return (
-    <div className="appointmentDesing">
-      <Container className="appointmetContainer"> 
-        <Row className='appointmentRow appointmetContainer'>
+    <div className="updateDesing">
+      <Container className="updateContainer"> 
+        <Row className='updateRow updateContainer'>
           <Col>
             <Form>
               <Form.Group controlId="formBasicDate">

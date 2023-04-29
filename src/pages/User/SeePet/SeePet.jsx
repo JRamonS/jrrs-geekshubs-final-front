@@ -87,6 +87,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Appointment } from "../Appointment/Appointment";
 import { UpdateApp } from "../UpdateApp/UpdateApp";
+import { DeleteApp } from "../DeleteApp/DeleteApp";
 
 export const SeePet = () => {
   const [pet, setPet] = useState([]);
@@ -104,7 +105,10 @@ export const SeePet = () => {
   const handleRemove = () => setUpdate(false);
   const handleUpdate = () => setUpdate(true);
 
-  
+  const [deleteApp, setDeleteApp] = useState(false);
+
+  const handleClosed = () => setDeleteApp(false);
+  const handleDeleteApp = () => setDeleteApp(true);
 
 
   useEffect(() => {
@@ -171,11 +175,22 @@ export const SeePet = () => {
                             </Button>
                           </Modal.Footer>
                         </Modal>
+
+                        <Button variant="primary" onClick={handleDeleteApp}>
+                          Delete
+                        </Button>
+
+                        <Modal show={deleteApp} onHide={handleClosed}>
+                          <Modal.Body><DeleteApp></DeleteApp></Modal.Body>
+                          <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClosed}>
+                              Close
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
     
                           
-                          <Link to={`/deleteApp/${pet.id}`}>
-                            DeleteAppointment
-                          </Link>
+      
                         </>
                       )}
                   </Card.Body>

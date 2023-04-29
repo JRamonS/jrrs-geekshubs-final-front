@@ -127,7 +127,6 @@ export const Appointment = () => {
                     name={"dateTime"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => checkError(e)}
                   />
                   <Form.Text className="text-danger">
                     {appointmentError.dateTimeError}
@@ -142,7 +141,6 @@ export const Appointment = () => {
                     name={"observation"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => checkError(e)}
                   />
                   <Form.Text className="text-danger">
                     {appointmentError.observationError}

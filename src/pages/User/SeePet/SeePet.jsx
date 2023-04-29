@@ -85,9 +85,9 @@ import { Card, Container } from "react-bootstrap";
 import { addChoosenPet } from "../../petSlice";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { Appointment } from "../Appointment/Appointment";
 import { UpdateApp } from "../UpdateApp/UpdateApp";
 import { DeleteApp } from "../DeleteApp/DeleteApp";
+
 
 export const SeePet = () => {
   const [pet, setPet] = useState([]);
@@ -95,10 +95,6 @@ export const SeePet = () => {
   const dispatch = useDispatch();
   const [showLinks, setShowLinks] = useState(false);
 
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const [update, setUpdate] = useState(false);
 
@@ -148,21 +144,6 @@ export const SeePet = () => {
                       ReduxCredentials?.credentials?.token?.data?.role_id ===
                         1 && (
                         <>
-                          
-   
-                        <Button variant="primary" onClick={handleShow}>
-                          add
-                        </Button>
-
-                        <Modal show={show} onHide={handleClose}>
-                          <Modal.Body><Appointment></Appointment></Modal.Body>
-                          <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                              Close
-                            </Button>
-                          </Modal.Footer>
-                        </Modal>
-
                         <Button variant="primary" onClick={handleUpdate}>
                           Update
                         </Button>

@@ -41,6 +41,8 @@ export const NavBar = () => {
                   </Nav.Link>
                   <Nav.Link as={Link} to="/petRegistration" className="text-white">Pet Registration</Nav.Link>
                   <Nav.Link as={Link} to="/seePet" className="text-white">See Pets</Nav.Link>
+                  <Nav.Link as={Link} to="/appointment/:id" className="text-white">Create App</Nav.Link>
+                  <Nav.Link as={Link} to="/seeAppointment/:id" className="text-white">See App</Nav.Link>
                 </>
               )}
               {isAdmin && (
@@ -61,8 +63,7 @@ export const NavBar = () => {
               
               {selectedPet && isLoggedIn && (
                 <>
-                  <Nav.Link as={Link} to={`/appointment/${selectedPet.id}`} className="text-white">Appointment</Nav.Link>
-                  <Nav.Link as={Link} to={`/seeAppointment/${selectedPet.id}`} className="text-white">See Appointments</Nav.Link>
+                
                   <Nav.Link as={Link} to={`/updateApp/${selectedPet.id}`} className="text-white">Update Appointments</Nav.Link>
                   <Nav.Link as={Link} to={`/deleteApp/${selectedPet.id}`} className="text-white">Delete Appointments</Nav.Link>
                 </>

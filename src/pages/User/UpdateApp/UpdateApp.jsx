@@ -4,23 +4,22 @@ import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux';
 import { appointmentData } from '../../appointmentSlice';
 import { modifyApp } from '../../../Services/apiCalls';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Form } from 'react-bootstrap';
 import { InputText } from '../../../Components/InputText/InputText';
 import { userData } from '../../userSlice';
+import { validate } from '../../../helpers/useful';
+import { ButtonAct } from '../../../Components/ButtonAct/ButtonAct';
+
 
 
 export const UpdateApp = () => {
-
     const navigate = useNavigate();
 
     const credentialsRdx = useSelector(userData);
     const appCredntials = useSelector(appointmentData);
 
-    
-
     const appointmentId = appCredntials.choosenAppointment.id;
     
-
     const [updateApp, setUpdateApp] = useState({
         observation: "",
         dateTime: "",
@@ -28,9 +27,36 @@ export const UpdateApp = () => {
         
     });
 
-    const [valiUpdateApp, setValiUpdateApp] = useState();
-
+    const [valiUpdateApp, setValiUpdateApp] = useState({
+      observation: false,
+      dateTime: false,
+    });
+  
+    const [updateError, setUpdateError] = useState({
+      observationError: "",
+      dateTimeError: "",
+    });
+  
     const [updateAppointmentAct, setupdateAppointmentAct] = useState(false);
+
+    const [service, setService] = useState([
+      {
+        id: 1,
+        name: "Bath",
+      },
+      {
+        id: 2,
+        name: "Nails Cutting",
+      },
+      {
+        id: 3,
+        name: "Haircut",
+      },
+      {
+        id: 4,
+        name: "Toothbrushing",
+      },
+    ]);
 
     const inputHandler = (e) => {
       setUpdateApp((prevState) => ({
@@ -57,7 +83,24 @@ export const UpdateApp = () => {
       setupdateAppointmentAct(true);
     }, [updateApp, valiUpdateApp]);
 
-    const checkError = (e) => {}; 
+    const checkError = (e) => { let error = "";
+
+    let checked = validate(e.target.name, e.target.value, e.target.required);
+  
+  
+  
+    error = checked.message;
+  
+    setValiUpdateApp((prevState) => ({
+      ...prevState,
+      [e.target.name + "Vali"]: checked.validated,
+    }));
+  
+    setUpdateError((prevState) => ({
+      ...prevState,
+      [e.target.name + "Error"]: error,
+    }));
+  }; 
 
     const updatApp = () => {
       modifyApp(updateApp, credentialsRdx.credentials.token.token);
@@ -68,51 +111,68 @@ export const UpdateApp = () => {
 
 
   return (
-    <div >
-      <Container className="mt-5 mb-5">
-        <Row className="mb-3">
+    <div className="appointmentDesing">
+      <Container className="appointmetContainer"> 
+        <Row className='appointmentRow appointmetContainer'>
           <Col>
-            <div>
-              <p className="text-center">Date:</p>
-              <InputText
-                className="dateInputDesign"
-                type={"datetime-local"}
-                name={"dateTime"}
-                required={true}
-                changeFunction={(e) => inputHandler(e)}
-                blurFunction={(e) => checkError(e)}
-              />
-            </div>
-          </Col>
-        </Row>
+            <Form>
+              <Form.Group controlId="formBasicDate">
+                <Form.Label>Date</Form.Label>
+                  <InputText
+                    className={"inputDate"}
+                    type={"datetime-local"}
+                    name={"dateTime"}
+                    required={true}
+                    changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
+                  />
+                  <Form.Text className="text-danger">
+                    {updateError.dateTimeError}
+                  </Form.Text>
+              </Form.Group>
 
-        <Row className="mb-3">
-          <Col>
-            <div>
-              <p className="text-center">Observation:</p>
-              <InputText
-                className="dateInputDesign"
-                type={"text"}
-                name={"observation"}
-                required={true}
-                changeFunction={(e) => inputHandler(e)}
-                blurFunction={(e) => checkError(e)}
+              <Form.Group controlId="formBasicObservation">
+                <Form.Label>Observation</Form.Label>
+                  <InputText
+                    className={"inputObsrvation"}
+                    type={"text"}
+                    name={"observation"}
+                    required={true}
+                    changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
+                  />
+                  <Form.Text className="text-danger">
+                    {updateError.observationError}
+                  </Form.Text>
+              </Form.Group>
+
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Service</Form.Label>
+                <Form.Select
+                    name={"service_id"}
+                    onChange={(e) => inputHandler(e)}
+                    aria-label="Default select example"
+                  >
+                    <option>Choose your Service:</option>
+
+                    {service.map((service) => {
+                      return (
+                        <option key={service.id} value={service.id}>
+                          {service.name}
+                        </option>
+                      );
+                    })}
+                  </Form.Select>
+              </Form.Group>
+              <div className="act mt-4">    
+              <ButtonAct 
+                className={updateAppointmentAct ? "registerSendDeac loginSendAct" : "registerSendDeac"}
+                buttonName="Submit"
+                onClick={updateAppointmentAct ? updatApp : () => {}}
               />
-            </div>
+              </div>
+            </Form>
           </Col>
-        </Row>
-        <Row className="mb-3">
-          <button
-            type="submit"
-            className={
-              updateAppointmentAct
-                ? "registerSendDeac buttonDesign text-center"
-                : "registerSendDeac buttonDesign text-center"
-            }
-            onClick={updatApp}
-          >
-            Submit
-          </button>
         </Row>
       </Container>
     </div>

@@ -1,0 +1,16 @@
+.appointmentDesing{
+    background-color: #00828c;
+    color: white;
+    font-family: "Myfont";
+}
+
+
+.appointmetContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.appointmentRow{
+    height: 56vh;
+}

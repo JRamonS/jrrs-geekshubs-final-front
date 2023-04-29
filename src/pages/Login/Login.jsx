@@ -49,7 +49,7 @@ export const Login = () => {
     userLogin(credentials)
         .then(
           reply => {
-            
+            console.log(reply.data);
             let datosBackend = {
               token:reply.data
             };
@@ -61,6 +61,7 @@ export const Login = () => {
         )
         .catch(error => console.log(error))
   };
+  
   
   const inputValidate = (e) => {
     switch(e.target.name){

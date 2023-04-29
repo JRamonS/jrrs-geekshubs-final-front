@@ -6,15 +6,16 @@ import { Register } from '../Register/Register'
 import { Login } from '../Login/Login'
 import { Service } from '../Servicios/Service'
 import { UserProfile } from '../Profile/UserProfile'
-import { Appointment } from '../Appointment/Appointment'
-import { SeeAppointment } from '../SeeAppointment/SeeAppointment'
-import { PetRegistration } from '../PetRegistration/PetRegistration'
-import { SeePet } from '../SeePet/SeePet'
-import { UpdateApp } from '../UpdateApp/UpdateApp'
-import { DeleteApp } from '../DeleteApp/DeleteApp'
+import { Appointment } from '../User/Appointment/Appointment'
+import { SeeAppointment } from '../User/SeeAppointment/SeeAppointment'
+import { PetRegistration } from '../User/PetRegistration/PetRegistration'
+import { SeePet } from '../User/SeePet/SeePet'
+import { UpdateApp } from '../User/UpdateApp/UpdateApp'
+import { DeleteApp } from '../User/DeleteApp/DeleteApp'
 import { AdmUser } from '../Admin/AdmUser/AdmUser'
 import { AdmApp } from '../Admin/AdmApp/AdmApp'
 import { DeleteUser } from '../Admin/DeleteUser/DeleteUser'
+
 
 
 

@@ -68,12 +68,12 @@ export const UpdateApp = () => {
 
 
   return (
-    <div className="h">
+    <div >
       <Container className="mt-5 mb-5">
-        <Row className="mb-3 rowDesign">
-          <Col id="formGridDate">
-            <div className="d-flex flex-column">
-              <p className="pe-4 nameFieldDesign text-center">Date:</p>
+        <Row className="mb-3">
+          <Col>
+            <div>
+              <p className="text-center">Date:</p>
               <InputText
                 className="dateInputDesign"
                 type={"datetime-local"}
@@ -86,10 +86,10 @@ export const UpdateApp = () => {
           </Col>
         </Row>
 
-        <Row className="mb-3 rowDesign">
-          <Col id="formGridDate">
-            <div className="d-flex flex-column">
-              <p className="pe-4 nameFieldDesign text-center">Observation:</p>
+        <Row className="mb-3">
+          <Col>
+            <div>
+              <p className="text-center">Observation:</p>
               <InputText
                 className="dateInputDesign"
                 type={"text"}
@@ -101,7 +101,7 @@ export const UpdateApp = () => {
             </div>
           </Col>
         </Row>
-        <Row className="mb-3  d-flex justify-content-center">
+        <Row className="mb-3">
           <button
             type="submit"
             className={

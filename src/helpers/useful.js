@@ -1,6 +1,7 @@
 export const validate = (name, data, required) => {
     //Here, we evaluate all possible ways in which the user can enter data. 
   switch (name) {
+    case "observation":
     case "name":
     case "surname":
     case "nombre":
@@ -49,7 +50,8 @@ export const validate = (name, data, required) => {
         } else {
           return { message: "", validated: true };
         }
-
+    
+    
     case "phone":
     case "tfno":
     case "tlfno":

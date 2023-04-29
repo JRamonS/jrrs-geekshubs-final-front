@@ -1,5 +1,7 @@
 .loginSendDeac,
-.registerSendDeac {
+.registerSendDeac,
+.petRegisterSendDeac,
+.deleteAppointmentSendDeac {
 
     width: 5em;
     height: 1.5em;
@@ -15,7 +17,9 @@
 }
 
 .loginSendAct,
-.registerSendAct {
+.registerSendAct,
+.petRegisterSendAct,
+.deleteAppointmentAct {
 
     cursor: pointer;
     background-color:  #337b6b;
@@ -23,7 +27,9 @@
 }
 
 .loginSendAct:hover,
-.registerSendAct:hover {
+.registerSendAct:hover,
+.petRegisterSendAct:hover,
+.deleteAppointmentAct:hover {
 
     transition: 1s;
     background-color: #2e5e54 ;

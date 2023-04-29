@@ -26,8 +26,6 @@ export const DeleteApp = () => {
     }, 500);
   };
 
-  console.log(credentialsRdx.credentials.token.token);
-  console.log(appCredentials.choosenAppointment.id);
 
   return (
     <div className="h">
@@ -47,8 +45,8 @@ export const DeleteApp = () => {
             type="submit"
             className={
               deleteAppointmentAct
-                ? 'registerSendDeac buttonDesign text-center'
-                : 'registerSendDeac buttonDesign text-center'
+                ? 'deleteAppointmentSendDeac'
+                : 'deleteAppointmentAct'
             }
             onClick={deleteAppointment}
           >
@@ -58,8 +56,8 @@ export const DeleteApp = () => {
             type="submit"
             className={
               deleteAppointmentAct
-                ? 'registerSendDeac buttonDesign text-center'
-                : 'registerSendDeac buttonDesign text-center'
+              ? 'deleteAppointmentSendDeac'
+              : 'deleteAppointmentAct'
             }
             onClick={() => navigate('/seeAppointment/:id')}
           >

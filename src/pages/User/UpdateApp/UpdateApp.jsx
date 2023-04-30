@@ -7,7 +7,6 @@ import { modifyApp } from '../../../Services/apiCalls';
 import { Col, Container, Row, Form } from 'react-bootstrap';
 import { InputText } from '../../../Components/InputText/InputText';
 import { userData } from '../../userSlice';
-import { validate } from '../../../helpers/useful';
 import { ButtonAct } from '../../../Components/ButtonAct/ButtonAct';
 
 
@@ -72,34 +71,35 @@ export const UpdateApp = () => {
           return;
         }
       }
+      setupdateAppointmentAct(true);
+    }, [updateApp]);
   
+    useEffect(() => {
       for (let validated in valiUpdateApp) {
         if (valiUpdateApp[validated] === false) {
           setupdateAppointmentAct(false);
           return;
         }
       }
-  
       setupdateAppointmentAct(true);
-    }, [updateApp, valiUpdateApp]);
+    }, [valiUpdateApp]);
 
-    const checkError = (e) => { let error = "";
 
-    let checked = validate(e.target.name, e.target.value, e.target.required);
+  const checkError = (e) => {
+    const { name, value } = e.target;
+    const errorName = `${name}Error`;
   
-  
-  
-    error = checked.message;
-  
-    setValiUpdateApp((prevState) => ({
-      ...prevState,
-      [e.target.name + "Vali"]: checked.validated,
-    }));
-  
-    setUpdateError((prevState) => ({
-      ...prevState,
-      [e.target.name + "Error"]: error,
-    }));
+    if (value.trim() === "") {
+      setUpdateError((prevState) => ({
+        ...prevState,
+        [errorName]: `${name} is required`,
+      }));
+    } else {
+      setUpdateError((prevState) => ({
+        ...prevState,
+        [errorName]: "",
+      }));
+    }
   }; 
 
     const updatApp = () => {

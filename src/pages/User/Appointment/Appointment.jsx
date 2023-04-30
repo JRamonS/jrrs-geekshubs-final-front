@@ -32,7 +32,6 @@ export const Appointment = () => {
   const [appointmentError, setAppointmentError] = useState({
     observationError: "",
     dateTimeError: "",
-    service_idError: "",
   });
 
   const [appointmentAct, setAppointmentAct] = useState(false);
@@ -109,7 +108,6 @@ export const Appointment = () => {
     }, 500);
   };
 
-  console.log(appointmentAct);
   return (
     <div className="appointmentDesing">
       <Container className="appointmetContainer"> 

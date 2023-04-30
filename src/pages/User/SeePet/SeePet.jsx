@@ -7,7 +7,6 @@ import { Card, Container } from "react-bootstrap";
 import { addChoosenPet } from "../../petSlice";
 
 
-
 export const SeePet = () => {
   const [pet, setPet] = useState([]);
   const ReduxCredentials = useSelector(userData);
@@ -38,8 +37,6 @@ export const SeePet = () => {
                 <Card
                   onClick={() => petSelected(pet)}
                   border="info"
-                  onMouseEnter={() => setShowLinks(true)}
-                  onMouseLeave={() => setShowLinks(false)}
                 >
                   <Card.Body>
                     <Card.Title>Name: &nbsp; {pet.name} </Card.Title>

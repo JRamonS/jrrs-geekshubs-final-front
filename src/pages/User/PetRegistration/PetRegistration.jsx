@@ -1,31 +1,53 @@
 import React, { useState, useEffect } from "react";
 import "./PetRegistration.css"
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { registerPet } from "../../../Services/apiCalls";
 import { useSelector } from "react-redux";
 import { userData } from "../../userSlice";
 import { useNavigate } from "react-router-dom";
+import { InputText } from "../../../Components/InputText/InputText";
+import { ButtonAct } from "../../../Components/ButtonAct/ButtonAct";
 
 export const PetRegistration = () => {
-
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [breed, setBreed] = useState("");
-  const [type, setType] = useState("");
-  const [breedList, setBreedList] = useState([]);
 
   const credentialsRdx = useSelector(userData);
   const navigate = useNavigate();
 
+  const[pet, setPet] = useState({
+    name: "",
+    age: "",
+    breed: "",
+    type: ""
+  });
+
+  const [valiPet, setValiPet] = useState({
+    name: false,
+    age: false
+  });
+
+  const [petError, setPetError] = useState ({
+    nameError: "",
+    ageError: "",
+  });
+
+  const [petRegisterAct, setPetRegisterAct] = useState(false);
+
+  const [breedList, setBreedList] = useState([]);
+
   const handleTypeChange = (e) => {
-    setType(e.target.value);
-    if (e.target.value === "Dog") {
+    const type = e.target.value;
+    setPet(prevPet => ({
+      ...prevPet,
+      type: type,
+      breed: ""
+    }));
+    if (type === "Dog") {
       setBreedList([
         "Labrador Retriever",
         "German Shepherd",
         "Golden Retriever",
       ]);
-    } else if (e.target.value === "Cat") {
+    } else if (type === "Cat") {
       setBreedList([
         "Siamese",
         "Persian",
@@ -38,10 +60,54 @@ export const PetRegistration = () => {
     }
   };
 
-  const newPet = { name, age, breed, type };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    registerPet(newPet, credentialsRdx.credentials.token.token);;
+  const inputHandler = (e) => {
+    setPet((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  
+  useEffect(() => {
+    for (let empty in pet) {
+      if (pet[empty] === "") {
+        setPetRegisterAct(false);
+        return;
+      }
+    }
+    setPetRegisterAct(true);
+  }, [pet]);
+
+  useEffect(() => {
+    for (let validated in valiPet) {
+      if (valiPet[validated] === false) {
+        setPetRegisterAct(false);
+        return;
+      }
+    }
+    setPetRegisterAct(true);
+  }, [valiPet]);
+
+
+const checkError = (e) => {
+  const { name, value } = e.target;
+  const errorName = `${name}Error`;
+
+  if (value.trim() === "") {
+    setPetError((prevState) => ({
+      ...prevState,
+      [errorName]: `${name} is required`,
+    }));
+  } else {
+    setPetError((prevState) => ({
+      ...prevState,
+      [errorName]: "",
+    }));
+  }
+}; 
+
+  const petRegister = () => {
+    registerPet(pet, credentialsRdx.credentials.token.token);;
     setTimeout(() => {
       navigate ('/userProfile')
     }, 500);
@@ -49,61 +115,82 @@ export const PetRegistration = () => {
   
 
   return (
-  <div className="petDesign formDesigns">
-    <Form onSubmit={handleSubmit}>
-      <Form.Group>
-        <Form.Label>Name</Form.Label>
-        <Form.Control
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </Form.Group>
+  <div className="petDesign">
+    <Container className="petContainer">
+      <Row className='petRow petContainer'>
+        <Col>
+          <Form>
+            <Form.Group controlId="formBasicName">
+              <Form.Label>Name</Form.Label>
+                <InputText
+                className={"inputName"}
+                type={"text"}
+                name={"name"}
+                required={true}
+                changeFunction={(e) => inputHandler(e)}
+                blurFunction={(e) => checkError(e)}
+                />
+                <Form.Text className="text-danger">
+                    {petError.nameError}
+                </Form.Text>
+            </Form.Group>
 
-      <Form.Group>
-        <Form.Label>Age</Form.Label>
-        <Form.Control
-          type="number"
-          value={age}
-          min={1}
-          max={25}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </Form.Group>
+            <Form.Group controlId="formBasicAge">
+              <Form.Label>Age</Form.Label>
+                <InputText
+                className={"inputAge"}
+                type={"number"}
+                name={"age"}
+                required={true}
+                min={1}
+                max={25}
+                changeFunction={(e) => inputHandler(e)}
+                blurFunction={(e) => checkError(e)}
+                />
+                <Form.Text className="text-danger">
+                    {petError.ageError}
+                </Form.Text>
+            </Form.Group>
 
-      <Form.Group>
-        <Form.Label>Type</Form.Label>
-        <Form.Control
-          as="select"
-          value={type}
-          onChange={handleTypeChange}
-        >
-          <option value="">-- Select a type --</option>
-          <option value="Dog">Dog</option>
-          <option value="Cat">Cat</option>
-        </Form.Control>
-      </Form.Group>
+            <Form.Group>
+              <Form.Label>Type</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={pet.type}
+                  onChange={handleTypeChange}
+                >
+                  <option value="">-- Select a type --</option>
+                  <option value="Dog">Dog</option>
+                  <option value="Cat">Cat</option>
+                </Form.Control>
+            </Form.Group>
 
-      <Form.Group>
-        <Form.Label>Breed</Form.Label>
-        <Form.Control
-          as="select"
-          value={breed}
-          onChange={(e) => setBreed(e.target.value)}
-        >
-          <option value="">-- Select a breed --</option>
-          {breedList.map((breed) => (
-            <option key={breed} value={breed}>
-              {breed}
-            </option>
-          ))}
-        </Form.Control>
-      </Form.Group>
-
-      <Button variant="success" type="submit">
-        Register
-      </Button>
-    </Form>
+            <Form.Group>
+              <Form.Label>Breed</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={pet.breed}
+                  onChange={(e) => setPet({ ...pet, breed: e.target.value })}
+                >
+                <option value="">-- Select a breed --</option>
+                {breedList.map((breed) => (
+                  <option key={breed} value={breed}>
+                    {breed}
+                </option>
+                ))}
+                </Form.Control>
+            </Form.Group>
+            <div className=" mt-4">    
+              <ButtonAct 
+                className={petRegisterAct ? "registerSendDeac loginSendAct" : "registerSendDeac"}
+                buttonName="Submit"
+                onClick={petRegisterAct? petRegister : () => {}}
+              />
+              </div>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   </div>
   );
 };

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import "./UpdateApp.css"
-import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux';
 import { appointmentData } from '../../appointmentSlice';
 import { modifyApp } from '../../../Services/apiCalls';
@@ -12,7 +11,6 @@ import { ButtonAct } from '../../../Components/ButtonAct/ButtonAct';
 
 
 export const UpdateApp = () => {
-    const navigate = useNavigate();
 
     const credentialsRdx = useSelector(userData);
     const appCredntials = useSelector(appointmentData);
@@ -177,6 +175,6 @@ export const UpdateApp = () => {
       </Container>
     </div>
   )
-}
+};
 
 

@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { userData } from "../../userSlice";
 import { petData } from "../../petSlice";
 import { ButtonAct } from "../../../Components/ButtonAct/ButtonAct";
-import { validate } from "../../../helpers/useful";
+
 
 export const Appointment = () => {
   const navigate = useNavigate();
@@ -27,8 +27,6 @@ export const Appointment = () => {
 
   const [valiAppointment, setValiAppointment] = useState({
     observation: false,
-    dateTime: false,
-    service_id: false,
   });
 
   const [appointmentError, setAppointmentError] = useState({
@@ -74,36 +72,35 @@ export const Appointment = () => {
         return;
       }
     }
+    setAppointmentAct(true);
+  }, [infoAppointment]);
 
+  useEffect(() => {
     for (let validated in valiAppointment) {
       if (valiAppointment[validated] === false) {
         setAppointmentAct(false);
         return;
       }
     }
-
     setAppointmentAct(true);
-  }, [infoAppointment, valiAppointment]);
+  }, [valiAppointment]);
 
   const checkError = (e) => {
-    let error = "";
-
-  let checked = validate(e.target.name, e.target.value, e.target.required);
-
-
-
-  error = checked.message;
-
-  setValiAppointment((prevState) => ({
-    ...prevState,
-    [e.target.name + "Vali"]: checked.validated,
-  }));
-
-  setAppointmentError((prevState) => ({
-    ...prevState,
-    [e.target.name + "Error"]: error,
-  }));
-};
+    const { name, value } = e.target;
+    const errorName = `${name}Error`;
+  
+    if (value.trim() === "") {
+      setAppointmentError((prevState) => ({
+        ...prevState,
+        [errorName]: `${name} is required`,
+      }));
+    } else {
+      setAppointmentError((prevState) => ({
+        ...prevState,
+        [errorName]: "",
+      }));
+    }
+  };
 
   const bookApp = () => {
     newAppointment(infoAppointment, credentialsRdx.credentials.token.token);
@@ -112,7 +109,7 @@ export const Appointment = () => {
     }, 500);
   };
 
-
+  console.log(appointmentAct);
   return (
     <div className="appointmentDesing">
       <Container className="appointmetContainer"> 
@@ -127,6 +124,7 @@ export const Appointment = () => {
                     name={"dateTime"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
                   />
                   <Form.Text className="text-danger">
                     {appointmentError.dateTimeError}
@@ -141,6 +139,7 @@ export const Appointment = () => {
                     name={"observation"}
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
                   />
                   <Form.Text className="text-danger">
                     {appointmentError.observationError}
@@ -179,4 +178,3 @@ export const Appointment = () => {
     </div>
   );
 };
-

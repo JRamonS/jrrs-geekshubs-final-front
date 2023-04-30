@@ -15,7 +15,6 @@ export const NavBar = () => {
     return navigate("/login");
   };
 
-  const [selectedPet, setSelectedPet] = useState(null);
   const [deleteUser, setDeleteUser] = useState(null);
 
 
@@ -41,8 +40,8 @@ export const NavBar = () => {
                   </Nav.Link>
                   <Nav.Link as={Link} to="/petRegistration" className="text-white">Pet Registration</Nav.Link>
                   <Nav.Link as={Link} to="/seePet" className="text-white">See Pets</Nav.Link>
-                  <Nav.Link as={Link} to="/appointment/:id" className="text-white">Create App</Nav.Link>
-                  <Nav.Link as={Link} to="/seeAppointment/:id" className="text-white">See App</Nav.Link>
+                  <Nav.Link as={Link} to="/appointment" className="text-white">Create App</Nav.Link>
+                  <Nav.Link as={Link} to="/seeAppointment" className="text-white">See App</Nav.Link>
                 </>
               )}
               {isAdmin && (
@@ -60,14 +59,6 @@ export const NavBar = () => {
                   <Nav.Link as={Link} to={`/deleteUser/${deleteUser.id}`} className="text-white">Delete User</Nav.Link>
                 </>
                 )}
-              
-              {selectedPet && isLoggedIn && (
-                <>
-                
-                  <Nav.Link as={Link} to={`/updateApp/${selectedPet.id}`} className="text-white">Update Appointments</Nav.Link>
-                  <Nav.Link as={Link} to={`/deleteApp/${selectedPet.id}`} className="text-white">Delete Appointments</Nav.Link>
-                </>
-              )}
               {isLoggedIn ? (
                 <Nav.Link as={Link} to="/logout" className="text-white navDesing" onClick={() => logout()}>Logout</Nav.Link>
               ) : (

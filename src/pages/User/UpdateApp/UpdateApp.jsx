@@ -105,8 +105,8 @@ export const UpdateApp = () => {
     const updatApp = () => {
       modifyApp(updateApp, credentialsRdx.credentials.token.token);
       setTimeout(() => {
-        navigate("/seeAppointment/:id");
-      }, 500);
+        window.location.reload(true);
+      }, 1500);;
     };
 
 

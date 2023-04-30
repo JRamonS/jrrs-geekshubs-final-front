@@ -78,7 +78,7 @@ export const deleteApp = async (body, token) => {
     },
     data: body
   };
-
+    console.log(body, token);
   return await axios.delete(`${root}appointment`, config)
 }
 

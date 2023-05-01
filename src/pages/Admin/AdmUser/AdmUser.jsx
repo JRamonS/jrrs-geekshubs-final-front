@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react'
+import './AdmUser.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { userData } from '../../userSlice';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { bringAllUsers } from '../../../Services/apiCalls';
-import { Card, Container } from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
 import { addChoosen } from '../../detailSlice';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { DeleteUser } from '../DeleteUser/DeleteUser';
 
 export const AdmUser = () => {
 
@@ -12,14 +16,18 @@ export const AdmUser = () => {
     const ReduxCredentials = useSelector(userData);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
 
-    const [hasSelectedDeleteUser, setHasSelectedDeleteUser] = useState(false);
-    const [showLinks, setShowLinks] = useState(false);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         if (users.length === 0) {
           bringAllUsers(ReduxCredentials.credentials.token.token)
             .then((result) => {
+              setLoading(false);
               //After fetching the users from the database, we store them in the hook.
               setUsers(result.data.data);
             })
@@ -28,49 +36,77 @@ export const AdmUser = () => {
       }, [users]);
 
       
-      
-      const selected = (user) => {
-        dispatch(addChoosen({ choosenObject: user }));
+      const selected= (user) => {
+        dispatch(addChoosen({ choosenObject: user}))
         setTimeout(() => {
-          navigate(`/deleteUser/${user.id}`);
+        
         }, 500);
-      }; 
+    
+        if (loading){
+          return (
+            <div className='spinnerDesign d-flex justify-content-center align-items-center flex-column'>
+              <div><Spinner animation="border" variant="primary"/></div>
+              <div>   <h4>Loading...</h4></div>
+            </div>
+          );
+        }
+      
+      };
 
-      
-      
-  return (
+return (
+  <div className="adminUserDesign">
     <div>
-      {users.length > 0 ? (
-        <div>
-        {users.map((user) => {
-            return (
-            <Container key={user.id}>
-                <Card
-                border="info"
-                onMouseEnter={() => setShowLinks(true)}
-                onMouseLeave={() => setShowLinks(false)}>
+      <h2 className='text-center text-white'>Your Users</h2>
+      {loading ? (
+        <div className='spinnerDesign d-flex justify-content-center align-items-center flex-column'>
+          <div>
+            <Spinner animation="border" variant="primary"/>
+          </div>
+          <div>
+            <h4>Loading...</h4>
+          </div>
+        </div>
+      ) : (
+        users.length > 0 ? (
+          <div className="userCardContainer">
+            {users.map((user) => {
+              return (
+                <div key={user.id} className="userCard">
+                  <Card onClick={() => selected(user)}>
                     <Card.Body>
                     <Card.Title>Name: &nbsp; {user.name} </Card.Title>
                     <Card.Title>Surname:&nbsp; {user.surname} </Card.Title>
                     <Card.Title>Email:&nbsp; {user.email} </Card.Title>
                     <Card.Title>Phone:&nbsp; {user.phone} </Card.Title>
-                    {showLinks &&
-                    ReduxCredentials?.credentials?.token?.data?.role_id === 2 && (
-                    <>
-                    <Link to={`/deleteUser/${user.id}`}onClick={() => selected(user)}>Delete User</Link>
-                    </>
-                    )}
+                      <>
+                          <div>
+                            <Button variant="danger" onClick={handleShow}>
+                              Delete
+                            </Button>
+
+                            <Modal show={show} onHide={handleClose} backdrop="static">
+                              <Modal.Body><DeleteUser></DeleteUser></Modal.Body>
+                              <Modal.Footer>
+                                <Button variant="danger" onClick={handleClose}>
+                                  Close
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>
+                          </div>
+                      </>
                     </Card.Body>
-                </Card>
-            </Container>
-            );
-        })}
-        </div>
+                  </Card>
+                </div>
+              );
+            })}
+          </div>
         ) : (
-        <div>ESTAN VINIENDO</div>
+          <div>No appointments found.</div>
+        )
       )}
     </div>
-  );
+  </div>
+);
 };
 
 

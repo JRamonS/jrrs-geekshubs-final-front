@@ -38,25 +38,9 @@
       }
   }
 
-/* .nameDising{
-    color: white;
-    display: flex;
-    justify-content: center;
-    font-family: 'Myfont';
-    
-} 
-
-.asClient{
-    color: #00b8b8;
-    display: flex;
-    justify-content: center;
-    margin-top: 3em;
-
-} */ */
-
-.modal-backdrop.show {
-    background-color: rgba(0,0,0,0.5) !important;
-}
+  .modal-backdrop.show {
+    opacity: 0.3 !important;
+  }
 
 .button-container {
     display: inline-block;

@@ -4,14 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userData } from '../../userSlice'
 import { bringAppointments } from '../../../Services/apiCalls';
 import { addChoosenAppointment } from '../../appointmentSlice';
-import { Card, Container, Spinner } from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
 import dayjs from 'dayjs';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { UpdateApp } from '../UpdateApp/UpdateApp';
 import { DeleteApp } from '../DeleteApp/DeleteApp';
-
-
 
 export const SeeAppointment = () => {
 

@@ -49,7 +49,6 @@ export const Login = () => {
     userLogin(credentials)
         .then(
           reply => {
-            console.log(reply.data);
             let datosBackend = {
               token:reply.data
             };

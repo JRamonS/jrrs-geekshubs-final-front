@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./DeleteUser.css"
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { userData } from '../../userSlice';
 import { deleteAllClient } from '../../../Services/apiCalls';
@@ -9,7 +8,6 @@ import { detailData } from '../../detailSlice';
 
 
 export const DeleteUser = () => {
-  const navigate = useNavigate();
   const credentialsRdx = useSelector(userData);
   const detailscredentials = useSelector(detailData);
 
@@ -25,52 +23,52 @@ export const DeleteUser = () => {
   const deleteUser = () => {
     deleteAllClient(deleteClient, credentialsRdx.credentials.token.token);
     setTimeout(() => {
-      navigate('/admUser');
-    }, 500);
+      window.location.reload(true);
+    }, 1500);
   };
 
-  
-  
 
-  return (
-    <div className="h">
-      <Container className="mt-5 mb-5">
-        <Row className="mb-3 rowDesign">
-          <Col id="formGridDate">
-            <div className="d-flex flex-column">
-              <p className="pe-4 nameFieldDesign text-center">
-                Are you sure you want to delete this appointment?
-              </p>
-            </div>
-          </Col>
-        </Row>
 
-        <Row className="mb-3  d-flex justify-content-center">
-          <button
-            type="submit"
-            className={
-              deleteUserAct
-                ? 'registerSendDeac buttonDesign text-center'
-                : 'registerSendDeac buttonDesign text-center'
-            }
-            onClick={deleteUser}
-          >
-            Yes
-          </button>
-          <button
-            type="submit"
-            className={
-              deleteUserAct
-                ? 'registerSendDeac buttonDesign text-center'
-                : 'registerSendDeac buttonDesign text-center'
-            }
-            onClick={() => navigate('/admUser')}
-          >
-            No
-          </button>
-        </Row>
-      </Container>
-    </div>
-  );
+return (
+  <div className="updateDesing">
+    <Container>
+      <Row className='deleteRow'>
+        <Col>
+          <div className="text-center mt-5">
+            <p>
+              Are you sure you want to delete this User?
+            </p>
+          </div>
+          <div className="mt-5">
+        <button
+          type="submit"
+          className={
+            deleteUserAct
+              ? 'registerSendDeac buttonDesign text-center'
+              : 'registerSendDeac buttonDesign text-center'
+          }
+          onClick={deleteUser}
+        >
+          Yes
+        </button>
+        </div>
+        <div className="mt-5">
+        <button
+          type="submit"
+          className={
+            deleteUserAct
+              ? 'registerSendDeac buttonDesign text-center'
+              : 'registerSendDeac buttonDesign text-center'
+          }
+          onClick={() => window.location.reload(true)}
+        >
+          No
+        </button>
+        </div>
+        </Col>
+      </Row>
+    </Container>
+  </div>
+);
 };
 

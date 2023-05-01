@@ -60,7 +60,7 @@ export const NavBar = () => {
                 </>
                 )}
               {isLoggedIn ? (
-                <Nav.Link as={Link} to="/logout" className="text-white navDesing" onClick={() => logout()}>Logout</Nav.Link>
+                <Nav.Link as={Link} to="/login" className="text-white navDesing" onClick={() => logout()}>Logout</Nav.Link>
               ) : (
                 <>
                   <Nav.Link as={Link} to="/login" className="text-white navDesing">Login</Nav.Link>

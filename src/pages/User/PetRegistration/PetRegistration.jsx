@@ -7,6 +7,7 @@ import { userData } from "../../userSlice";
 import { useNavigate } from "react-router-dom";
 import { InputText } from "../../../Components/InputText/InputText";
 import { ButtonAct } from "../../../Components/ButtonAct/ButtonAct";
+import { validate } from "../../../helpers/useful";
 
 export const PetRegistration = () => {
 
@@ -90,21 +91,22 @@ export const PetRegistration = () => {
 
 
 const checkError = (e) => {
-  const { name, value } = e.target;
-  const errorName = `${name}Error`;
+  let error = "";
 
-  if (value.trim() === "") {
-    setPetError((prevState) => ({
-      ...prevState,
-      [errorName]: `${name} is required`,
-    }));
-  } else {
-    setPetError((prevState) => ({
-      ...prevState,
-      [errorName]: "",
-    }));
-  }
-}; 
+  let checked = validate(e.target.name, e.target.value, e.target.required);
+
+  error = checked.message;
+
+  setValiPet((prevState) => ({
+    ...prevState,
+    [e.target.name + "Vali"]: checked.validated,
+  }));
+
+  setPetError((prevState) => ({
+    ...prevState,
+    [e.target.name + "Error"]: error,
+  }));
+};
 
   const petRegister = () => {
     registerPet(pet, credentialsRdx.credentials.token.token);;
@@ -129,6 +131,7 @@ const checkError = (e) => {
                 required={true}
                 changeFunction={(e) => inputHandler(e)}
                 blurFunction={(e) => checkError(e)}
+                maxLength={20}
                 />
                 <Form.Text className="text-danger">
                     {petError.nameError}

@@ -45,7 +45,7 @@ export const AdmApp = () => {
       };
 
 return (
-  <div className="seePetDesign">
+  <div className="seeAppDesign">
     <div>
       <h2 className='text-center text-white'>Your Appointments</h2>
       {loading ? (
@@ -59,10 +59,10 @@ return (
         </div>
       ) : (
         allApointments.length > 0 ? (
-          <div className="petCardContainer">
+          <div className="appCardContainer">
             {allApointments.map((AllAppointmet) => {
               return (
-                <div key={AllAppointmet.id} className="petCard">
+                <div key={AllAppointmet.id} className="appCard">
                   <Card border="info">
                     <Card.Body>
                       <Card.Title>User Name: &nbsp; {AllAppointmet.user.name} </Card.Title>

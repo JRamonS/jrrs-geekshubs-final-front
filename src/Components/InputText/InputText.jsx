@@ -6,6 +6,7 @@ export const InputText = ({
     className,
     type,
     name,
+    maxLength,
     placeholder,
     required,
     changeFunction,
@@ -16,6 +17,7 @@ export const InputText = ({
         <Form.Control
             className={className}
             type={type}
+            maxLength={maxLength}
             name={name}
             placeholder={placeholder}
             required={required}

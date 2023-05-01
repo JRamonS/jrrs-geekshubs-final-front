@@ -126,6 +126,7 @@ export const Register = () => {
                   changeFunction={(e) => inputHandler(e)}
                   blurFunction={(e) => checkError(e)}
                   validateFunction={(e) => inputValidate(e)}
+                  maxLength={30}
                 />
                 <Form.Text className="text-danger">
                   {credencialesError.nameError}
@@ -143,6 +144,7 @@ export const Register = () => {
                   changeFunction={(e) => inputHandler(e)}
                   blurFunction={(e) => checkError(e)}
                   validateFunction={(e) => inputValidate(e)}
+                  maxLength={50}
                 />
                 <Form.Text className="text-danger">
                   {credencialesError.surnameError}

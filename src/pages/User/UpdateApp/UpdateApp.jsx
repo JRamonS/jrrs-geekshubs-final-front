@@ -7,6 +7,7 @@ import { Col, Container, Row, Form } from 'react-bootstrap';
 import { InputText } from '../../../Components/InputText/InputText';
 import { userData } from '../../userSlice';
 import { ButtonAct } from '../../../Components/ButtonAct/ButtonAct';
+import { validate } from '../../../helpers/useful';
 
 
 
@@ -83,22 +84,23 @@ export const UpdateApp = () => {
     }, [valiUpdateApp]);
 
 
-  const checkError = (e) => {
-    const { name, value } = e.target;
-    const errorName = `${name}Error`;
-  
-    if (value.trim() === "") {
+    const checkError = (e) => {
+      let error = "";
+    
+      let checked = validate(e.target.name, e.target.value, e.target.required);
+    
+      error = checked.message;
+    
+      setValiUpdateApp((prevState) => ({
+        ...prevState,
+        [e.target.name + "Vali"]: checked.validated,
+      }));
+    
       setUpdateError((prevState) => ({
         ...prevState,
-        [errorName]: `${name} is required`,
+        [e.target.name + "Error"]: error,
       }));
-    } else {
-      setUpdateError((prevState) => ({
-        ...prevState,
-        [errorName]: "",
-      }));
-    }
-  }; 
+    }; 
 
     const updatApp = () => {
       modifyApp(updateApp, credentialsRdx.credentials.token.token);
@@ -138,6 +140,7 @@ export const UpdateApp = () => {
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => checkError(e)}
+                    maxLength={100}
                   />
                   <Form.Text className="text-danger">
                     {updateError.observationError}

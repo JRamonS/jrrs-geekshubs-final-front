@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { userData } from "../../userSlice";
 import { petData } from "../../petSlice";
 import { ButtonAct } from "../../../Components/ButtonAct/ButtonAct";
+import { validate } from "../../../helpers/useful";
 
 
 export const Appointment = () => {
@@ -31,7 +32,6 @@ export const Appointment = () => {
 
   const [appointmentError, setAppointmentError] = useState({
     observationError: "",
-    dateTimeError: "",
   });
 
   const [appointmentAct, setAppointmentAct] = useState(false);
@@ -85,20 +85,21 @@ export const Appointment = () => {
   }, [valiAppointment]);
 
   const checkError = (e) => {
-    const { name, value } = e.target;
-    const errorName = `${name}Error`;
+    let error = "";
   
-    if (value.trim() === "") {
-      setAppointmentError((prevState) => ({
-        ...prevState,
-        [errorName]: `${name} is required`,
-      }));
-    } else {
-      setAppointmentError((prevState) => ({
-        ...prevState,
-        [errorName]: "",
-      }));
-    }
+    let checked = validate(e.target.name, e.target.value, e.target.required);
+  
+    error = checked.message;
+  
+    setValiAppointment((prevState) => ({
+      ...prevState,
+      [e.target.name + "Vali"]: checked.validated,
+    }));
+  
+    setAppointmentError((prevState) => ({
+      ...prevState,
+      [e.target.name + "Error"]: error,
+    }));
   };
 
   const bookApp = () => {
@@ -138,6 +139,7 @@ export const Appointment = () => {
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => checkError(e)}
+                    maxLength={100}
                   />
                   <Form.Text className="text-danger">
                     {appointmentError.observationError}

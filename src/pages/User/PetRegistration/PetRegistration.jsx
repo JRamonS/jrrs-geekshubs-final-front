@@ -145,8 +145,6 @@ const checkError = (e) => {
                 type={"number"}
                 name={"age"}
                 required={true}
-                min={1}
-                max={25}
                 changeFunction={(e) => inputHandler(e)}
                 blurFunction={(e) => checkError(e)}
                 />

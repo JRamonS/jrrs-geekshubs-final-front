@@ -85,7 +85,8 @@ export const SeeAppointment = () => {
                     <Card onClick={() => appointmentSelected(appointmentPet)}>
                       <Card.Body>
                         <Card.Title>Pet:&nbsp;{appointmentPet.pet.name} </Card.Title>
-                        <Card.Title>Date:&nbsp;{dayjs(appointmentPet.dateTime).format("DD-MMM-hh")}</Card.Title>
+                        <Card.Title>Date:&nbsp;{dayjs(appointmentPet.dateTime).format("DD-MMM-YYYY hh:mm A")}</Card.Title>
+
                         <Card.Title>Service:&nbsp;{appointmentPet.service.name} </Card.Title>
                         <Card.Title>Duration:&nbsp;{appointmentPet.service.duration} </Card.Title>
                         <Card.Title>Price:&nbsp;{appointmentPet.service.price} </Card.Title>

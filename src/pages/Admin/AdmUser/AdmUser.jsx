@@ -101,7 +101,7 @@ return (
             })}
           </div>
         ) : (
-          <div>No appointments found.</div>
+          <div>No users found.</div>
         )
       )}
     </div>

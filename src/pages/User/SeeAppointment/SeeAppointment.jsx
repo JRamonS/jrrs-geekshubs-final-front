@@ -68,7 +68,7 @@ export const SeeAppointment = () => {
   return (
     <div className="appointmentDesign">
       <div>
-        <h2 className='nameDising'>Your Appointments</h2>
+        <h2 className='text-center text-white'>Your Appointments</h2>
         {loading ? (
           <div className='spinnerDesign d-flex justify-content-center align-items-center flex-column'>
             <div>
@@ -80,10 +80,10 @@ export const SeeAppointment = () => {
           </div>
         ) : (
           appointments.length > 0 ? (
-            <div>
+            <div className="seeCardContainer">
               {appointments.map((appointmentPet) => {
                 return (
-                  <Container className='asClient' key={appointmentPet.id}>
+                  <div key={appointmentPet.id} className="seeCard">
                     <Card onClick={() => appointmentSelected(appointmentPet)}>
                       <Card.Body>
                         <Card.Title>Pet:&nbsp;{appointmentPet.pet.name} </Card.Title>
@@ -91,68 +91,41 @@ export const SeeAppointment = () => {
                         <Card.Title>Service:&nbsp;{appointmentPet.service.name} </Card.Title>
                         <Card.Title>Duration:&nbsp;{appointmentPet.service.duration} </Card.Title>
                         <Card.Title>Price:&nbsp;{appointmentPet.service.price} </Card.Title>
-                        {/* <>
-                          <Button variant="primary" onClick={handleShow}>
-                            Update
-                          </Button>
-
-                          <Modal show={show} onHide={handleClose} backdrop="static">
-                            <Modal.Body><UpdateApp></UpdateApp></Modal.Body>
-                            <Modal.Footer>
-                              <Button variant="danger" onClick={handleClose}>
-                                Close
-                              </Button>
-                            </Modal.Footer>
-                          </Modal>
-
-                          <Button variant="danger" onClick={handleDeleteApp}>
-                            Delete
-                          </Button>
-
-                          <Modal show={deleteApp} onHide={handleClosed} backdrop="static">
-                            <Modal.Body><DeleteApp></DeleteApp></Modal.Body>
-                            <Modal.Footer>
-                              <Button variant="danger" onClick={handleClosed}>
-                                Close
-                              </Button>
-                            </Modal.Footer>
-                          </Modal>
-                        </> */}
                         <>
-  <div className="button-container">
-    <Button variant="primary" onClick={handleShow}>
-      Update
-    </Button>
+                          <div className="button-container">
+                            <Button variant="primary" onClick={handleShow}>
+                              Update
+                            </Button>
 
-    <Modal show={show} onHide={handleClose} backdrop="static">
-      <Modal.Body><UpdateApp></UpdateApp></Modal.Body>
-      <Modal.Footer>
-        <Button variant="danger" onClick={handleClose}>
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  </div>
+                            <Modal show={show} onHide={handleClose} backdrop="static">
+                              <Modal.Body><UpdateApp></UpdateApp></Modal.Body>
+                              <Modal.Footer>
+                                <Button variant="danger" onClick={handleClose}>
+                                  Close
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>
+                          </div>
 
-  <div className="button-container">
-    <Button variant="danger" onClick={handleDeleteApp}>
-      Delete
-    </Button>
+                          <div className="button-container">
+                            <Button variant="danger" onClick={handleDeleteApp}>
+                              Delete
+                            </Button>
 
-    <Modal show={deleteApp} onHide={handleClosed} backdrop="static">
-      <Modal.Body><DeleteApp></DeleteApp></Modal.Body>
-      <Modal.Footer>
-        <Button variant="danger" onClick={handleClosed}>
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  </div>
-</>
+                            <Modal show={deleteApp} onHide={handleClosed} backdrop="static">
+                              <Modal.Body><DeleteApp></DeleteApp></Modal.Body>
+                              <Modal.Footer>
+                                <Button variant="danger" onClick={handleClosed}>
+                                  Close
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>
+                          </div>
+                        </>
 
                       </Card.Body>
                     </Card>
-                  </Container>
+                  </div>
                 );
               })}
             </div>

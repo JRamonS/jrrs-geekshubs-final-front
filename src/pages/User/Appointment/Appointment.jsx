@@ -68,7 +68,6 @@ export const Appointment = () => {
   };
 
 
-
   useEffect(() => {
     for (let empty in infoAppointment) {
       if (infoAppointment[empty] === "") {
@@ -76,18 +75,15 @@ export const Appointment = () => {
         return;
       }
     }
-    setAppointmentAct(true);
-  }, [infoAppointment]);
 
-  useEffect(() => {
     for (let validated in valiAppointment) {
       if (valiAppointment[validated] === false) {
         setAppointmentAct(false);
-        return;
       }
     }
+
     setAppointmentAct(true);
-  }, [valiAppointment]);
+  }, [infoAppointment, valiAppointment ]);
 
   const checkError = (e) => {
     let error = "";

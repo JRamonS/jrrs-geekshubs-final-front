@@ -70,18 +70,15 @@ export const UpdateApp = () => {
           return;
         }
       }
-      setupdateAppointmentAct(true);
-    }, [updateApp]);
   
-    useEffect(() => {
       for (let validated in valiUpdateApp) {
         if (valiUpdateApp[validated] === false) {
           setupdateAppointmentAct(false);
-          return;
         }
       }
+  
       setupdateAppointmentAct(true);
-    }, [valiUpdateApp]);
+    }, [updateApp, valiUpdateApp ]);
 
 
     const checkError = (e) => {

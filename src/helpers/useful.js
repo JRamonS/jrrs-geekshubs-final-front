@@ -1,7 +1,6 @@
 export const validate = (name, data, required) => {
     //Here, we evaluate all possible ways in which the user can enter data. 
   switch (name) {
-case "observation":
 case "name":
 case "surname":
 case "nombre":
@@ -99,6 +98,33 @@ case "username":
         return { message: "Please fill with an age between 1 and 22", validated: false };
     }
     return { message: "", validated: true };
+
+    case "dateTime":
+    // Here we assess that the field cannot be empty.
+    if (data === "" && required === true) {
+        return { message: "Please fill the field", validated: false };
+    }
+    // Here we evaluate that the input is a valid date-time string.
+    else if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(data)) {
+        return { message: "Please fill with a valid date-time", validated: false };
+    }
+    return { message: "", validated: true };
+
+    case "observation":
+    //Here we assess that the field cannot be empty.
+    if (data === "" && required === true) {
+        return { message: "Please fill the field", validated: false };
+    //Here we evaluate that the fields entered are correct.
+    } else if (!/[a-zA-Z]/gi.test(data)) {
+        return { message: "Please fill with a valid text", validated: false };
+    //Here we evaluate that the fields entered do not contain a URL.
+    } else if (/^(https?:\/\/)/i.test(data)) {
+        return { message: "Please fill with a valid format", validated: false };
+    //Here we evaluate that the length of the input is within the specified limit.
+    } else if (data.length > 100) {
+        return { message: "This is a very long observation that exceeds the maximum length allowed", validated: false };
+    }
+    return { message: "", validated: true }
 
   }
 

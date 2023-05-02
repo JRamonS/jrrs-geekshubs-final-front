@@ -140,7 +140,6 @@ export const UpdateApp = () => {
                     required={true}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => checkError(e)}
-                    maxLength={100}
                   />
                   <Form.Text className="text-danger">
                     {updateError.observationError}

@@ -7,6 +7,7 @@ export const InputText = ({
     type,
     name,
     maxLength,
+    min,
     placeholder,
     required,
     changeFunction,
@@ -18,6 +19,7 @@ export const InputText = ({
             className={className}
             type={type}
             maxLength={maxLength}
+            min={min}
             name={name}
             placeholder={placeholder}
             required={required}

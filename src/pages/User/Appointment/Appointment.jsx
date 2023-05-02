@@ -9,6 +9,7 @@ import { userData } from "../../userSlice";
 import { petData } from "../../petSlice";
 import { ButtonAct } from "../../../Components/ButtonAct/ButtonAct";
 import { validate } from "../../../helpers/useful";
+import dayjs from "dayjs";
 
 
 export const Appointment = () => {
@@ -35,6 +36,10 @@ export const Appointment = () => {
   });
 
   const [appointmentAct, setAppointmentAct] = useState(false);
+
+  const today = dayjs().format("YYYY-MM-DDTHH:mm");
+
+  
 
   const [service, setService] = useState([
     {
@@ -122,6 +127,7 @@ export const Appointment = () => {
                     type={"datetime-local"}
                     name={"dateTime"}
                     required={true}
+                    min={today}
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => checkError(e)}
                   />
@@ -178,3 +184,4 @@ export const Appointment = () => {
     </div>
   );
 };
+

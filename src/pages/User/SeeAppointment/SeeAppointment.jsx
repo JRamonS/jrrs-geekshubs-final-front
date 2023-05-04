@@ -64,8 +64,8 @@ export const SeeAppointment = () => {
   }
 
   return (
-    <div className="appointmentDesign">
-      <div>
+    <div className="bga">
+      <div className='appointmentDesign'>
         <h2 className='text-center text-white'>Your Appointments</h2>
         {loading ? (
           <div className='spinnerDesign d-flex justify-content-center align-items-center flex-column'>

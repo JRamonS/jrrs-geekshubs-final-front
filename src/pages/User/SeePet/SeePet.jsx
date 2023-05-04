@@ -46,8 +46,9 @@ export const SeePet = () => {
 
 
 return (
-  <div className="seePetDesign">
-    <div>
+  
+  <div className="bgn">
+    <div className="seePetDesign">
       <h2 className='text-center text-white'>Your Pets</h2>
       {loading ? (
         <div className='spinnerDesign d-flex justify-content-center align-items-center flex-column'>

@@ -21,7 +21,7 @@ export const Home = () => {
         <div className="mobile-container">
         <h1>HAPPY PETZ</h1>
         <h2>Professional and affectionate pet care</h2>
-        <Button className="bgt" href="http://localhost:5173/service">
+        <Button className="bgt" href="http://localhost:5173/services">
           Book Appointment
         </Button>
         </div>
@@ -69,7 +69,7 @@ export const Home = () => {
         </Container>
       </div>
       <div className="btgDesing ">
-        <Button className="bgt" href="http://localhost:5173/service">
+        <Button className="bgt" href="http://localhost:5173/services">
           Book Appointment
         </Button>
       </div>

@@ -1,106 +1,100 @@
-.bgc{
-    background-color: #00828c; 
+.bgc {
+  background-color: #00828c;
 }
 /* <========== Styles in the main image in the H1, H2 and the bootstrap button  ============> */
-.bge{
-    background-image: url(../../assets/MainDog.jpg);
-    height: 500px;
-    color: white;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: "Myfont";
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.bge {
+  background-image: url(../../assets/MainDog.jpg);
+  height: 500px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Myfont";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.mobile-container{
-    margin-left: 1em;
+.mobile-container {
+  margin-left: 1em;
 }
-
-
 
 .bgt {
-    width: 10em ;
-    height: 2em;
-    background-color:  #3ba38c !important;
-    color: white;
-    font-size: 20px !important;
-    border-radius: 20px !important;
-    border: solid 2px black !important;
-    font-family: 'Myfont' !important;
-    cursor: pointer;
-    transition: transform 0.3s ease !important;
+  width: 10em;
+  height: 2em;
+  background-color: #3ba38c !important;
+  color: white;
+  font-size: 20px !important;
+  border-radius: 20px !important;
+  border: solid 2px black !important;
+  font-family: "Myfont" !important;
+  cursor: pointer;
+  transition: transform 0.3s ease !important;
 }
 
-.bgt:hover{
-    transform: scale(1.05);
-    background-color: #2e5e54 !important;
+.bgt:hover {
+  transform: scale(1.05);
+  background-color: #2e5e54 !important;
 }
 
 /*< Styles in the cards and in the descriptions, as well as adding style to the bootstrap button.> */
-.Desing, 
-.span{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Myfont";
-    color: white;
-    margin-top: 1em;
-    margin-bottom: 1em;
+.Desing,
+.span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Myfont";
+  color: white;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
-.span{
-    font-size: 1.2em;
+.span {
+  font-size: 1.2em;
 }
 
-.btgDesing{
-    display: flex !important;
-    justify-content: center ;
-    align-items: center ;
-    margin-top: 1em;
+.btgDesing {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
 }
 
 /* <========== Styles in the carousel and images   ============> */
 
-.homeDesign{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.homeDesign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.imgDesign{
-    width: 40vw;
-    border-radius: 20px;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
-}  
+.imgDesign {
+  width: 40vw;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
 /* <========== Paragraph styles   ============> */
-.p{
-    text-align: center;
-    font-family: "Myfont"; 
+.p {
+  text-align: center;
+  font-family: "Myfont";
 }
 
 /* <========== Media queries for the main image to be displayed on mobile    ============> */
 @media (max-width: 576px) {
-    .bge {
-      height: 200px; 
-    };
-    
+  .bge {
+    height: 200px;
   }
-/* <========== Media queries so that the content inside the image is not visible.   ============> */
-  @media (max-width: 768px) {
-    .mobile-container {
-      display: none !important;
-    }
-  }
-/* <========== Media queries to make the carousel better looking.    ============> */
-  @media (max-width: 552px){
-    .imgDesign{
-        width: 75vw;
-        height: 40vh;
-    }
 }
-
-
+/* <========== Media queries so that the content inside the image is not visible.   ============> */
+@media (max-width: 768px) {
+  .mobile-container {
+    display: none !important;
+  }
+}
+/* <========== Media queries to make the carousel better looking.    ============> */
+@media (max-width: 552px) {
+  .imgDesign {
+    width: 75vw;
+    height: 40vh;
+  }
+}

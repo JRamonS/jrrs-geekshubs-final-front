@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom'
 import { Home } from '../Home/Home'
 import { Register } from '../Register/Register'
 import { Login } from '../Login/Login'
-import { Service } from '../Servicios/Service'
 import { UserProfile } from '../Profile/UserProfile'
 import { Appointment } from '../User/Appointment/Appointment'
 import { SeeAppointment } from '../User/SeeAppointment/SeeAppointment'
@@ -15,11 +14,7 @@ import { DeleteApp } from '../User/DeleteApp/DeleteApp'
 import { AdmUser } from '../Admin/AdmUser/AdmUser'
 import { AdmApp } from '../Admin/AdmApp/AdmApp'
 import { DeleteUser } from '../Admin/DeleteUser/DeleteUser'
-
-
-
-
-
+import { Services } from '../Servis/Services'
 
 
 
@@ -28,7 +23,7 @@ export const Body = () => {
     <>
       <Routes>
         <Route path='/home' element={<Home/>}/>
-        <Route path='/service' element={<Service/>}/>
+        <Route path='/services' element={<Services/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/userProfile' element={<UserProfile/>}/>
@@ -44,6 +39,6 @@ export const Body = () => {
       </Routes>
     </>
   )
-}
+};
 
 

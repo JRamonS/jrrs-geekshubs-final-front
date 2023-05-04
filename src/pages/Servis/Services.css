@@ -1,0 +1,109 @@
+.bgcl {
+  background-color: #00828c;
+}
+/* <========== Styles in the main image and in the H1  ============> */
+.bgem {
+  background-image: url(../../assets/MainServices.jpg);
+  height: 500px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Myfont";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.serviceDesing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* <========== Styles in images in titles and subtitles   ============> */
+
+.services-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem;
+}
+
+.service-card {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 30px;
+  text-align: center;
+  padding: 20px;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.circle {
+  border-radius: 50% !important;
+  width: 4em !important;
+  height: 4em;
+  object-fit: cover !important;
+}
+
+.service-description {
+  font-family: "Myfont";
+  color: white;
+  margin-left: 2em;
+}
+
+.Desingi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  text-align: start;
+}
+/* <========== Style in bootstrap button   ============> */
+.bgte {
+  width: 10em;
+  height: 2em;
+  background-color: #3ba38c !important;
+  color: white;
+  font-size: 20px !important;
+  border-radius: 20px !important;
+  border: solid 2px black !important;
+  font-family: "Myfont" !important;
+  cursor: pointer;
+  transition: transform 0.3s ease !important;
+}
+
+.bgte:hover {
+  transform: scale(1.05);
+  background-color: #2e5e54 !important;
+}
+
+.btgDesingi {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  padding: 1em;
+}
+
+/* <========== Media queries for the main image to be displayed on mobile    ============> */
+@media (max-width: 576px) {
+    .bgem {
+      height: 200px; 
+    };
+    
+  }
+
+/* <========== Media queries so that the content inside the image is not visible.   ============> */
+  @media (max-width: 768px) {
+    .small-container {
+      display: none !important;
+    }
+  }

@@ -166,7 +166,7 @@ export const Appointment = () => {
                     })}
                   </Form.Select>
               </Form.Group>
-              <div className="act mt-4">    
+              <div className="act">    
               <ButtonAct 
                 className={appointmentAct ? "registerSendDeac loginSendAct" : "registerSendDeac"}
                 buttonName="Submit"

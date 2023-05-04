@@ -6,13 +6,20 @@
 .mx-auto{
     display: flex;
     gap: 1.5em;
-    font-size: 20px;
+    font-size: 1.2em;
     font-family: 'Myfont';
 }
 
 .logo{
-    width: 7vw;
+    width: 12vw;
 }
+
+@media (max-width: 576px) {
+    .logo {
+      width: 25vw; 
+    };
+    
+  }
 
 
 

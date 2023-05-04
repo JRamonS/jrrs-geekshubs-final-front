@@ -5,10 +5,12 @@ import { userData } from "../../userSlice";
 import { bringPets } from "../../../Services/apiCalls";
 import { Card, Spinner } from "react-bootstrap";
 import { addChoosenPet } from "../../petSlice";
+import { useNavigate } from "react-router";
 
 
 export const SeePet = () => {
   const [pet, setPet] = useState([]);
+  const navigate = useNavigate();
   const ReduxCredentials = useSelector(userData);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
@@ -27,7 +29,9 @@ export const SeePet = () => {
 
   const petSelected = (pet) => {
     dispatch(addChoosenPet({ choosenPet: pet}))
-    setTimeout(() => {}, 500);
+    setTimeout(() => {
+      navigate("/appointment");
+    }, 500);
 
     if (loading){
       return (

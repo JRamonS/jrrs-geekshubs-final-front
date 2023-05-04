@@ -174,7 +174,7 @@ export const Login = () => {
                   {credentialsError.passwordError}
                 </Form.Text>
             </Form.Group>
-            <div className="act mt-4">    
+            <div className=" mt-4">    
             <ButtonAct 
               className={loginAct ? "registerSendDeac loginSendAct" : "registerSendDeac"}
               buttonName="Login"

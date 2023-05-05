@@ -15,10 +15,9 @@
 }
 
 .userCard{
-    width: 30%;
+    width: 280px;
     margin: 10px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -26,6 +25,24 @@
 .userCard:hover{
     transform: scale(1.05);
 }
+
+.spinner, 
+.noUsersDesign{
+    height: 45vh;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.button {
+    display: inline-block;
+    margin-right: 10px;
+  }
 
 @media screen and (max-width: 768px) {
     .userCardContainer {

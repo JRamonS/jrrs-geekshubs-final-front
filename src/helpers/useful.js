@@ -12,7 +12,7 @@ case "username":
     if (data === "" && required === true) {
         return { message: "Please fill the field", validated: false };
     //Here we evaluate that the fields entered are correct.
-    } else if (!/^[a-z]+$/i.test(data)) {
+    } else if (!/^[a-z]+$/gi.test(data)) {
         return { message: "Please fill with a valid text", validated: false };
     //Here we evaluate that the fields entered do not contain a URL.
     } else if (/^(https?:\/\/)/i.test(data)) {

@@ -1,33 +1,28 @@
-.profileDesign{
-    background-color: #00828c ;
+.profileDesign {
+    background-color: #00828c;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.infoProfile{
+.infoProfile {
     display: flex;
     height: 100%;
     flex-direction: column;
 }
 
-.colDesign{
+.colDesign {
     height: 90vh;
-
-
 }
 
-.infoProfile2{
+.infoProfile2 {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
- 
 }
 
-
-
-.cuadroTxtDesign{
+.cuadroTxtDesign {
     background-color: white;
     width: 30vw;
     border-radius: 20px;
@@ -36,22 +31,38 @@
     align-items: center;
     justify-content: center;
     border: solid 2px #3ba38c;
-    
 }
-.cuadroTxtDesign:hover{
+
+.cuadroTxtDesign:hover {
     background-color: #3ba38c;
 }
 
-@media (max-width: 992px){
-    .infoProfile2{
+.txtDesign {
+    font-size: x-large;
+}
+
+.button {
+    width: 30vw;
+    border-radius: 20px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px #3ba38c !important;
+    margin: 1em;
+}
+
+.button:hover {
+    background-color: #3ba38c !important;
+}
+
+@media (max-width: 992px) {
+    .infoProfile2 {
         margin-top: 50px;
-    } 
-    .cuadroTxtDesign{
+    }
+
+    .cuadroTxtDesign,
+    .button {
         width: 80vw;
         height: 30px;
     }
-}
-
-.txtDesign{
-    font-size:x-large;
 }

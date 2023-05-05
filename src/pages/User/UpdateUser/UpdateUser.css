@@ -1,0 +1,16 @@
+.updateUserDesing{
+    background-color: #00828c;
+    color: white;
+    font-family: "Myfont";
+}
+
+
+.updateUserContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.updateUserRow{
+    height: 56vh;
+}

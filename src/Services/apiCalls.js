@@ -22,8 +22,20 @@ export const registerUser = async (body) => {
         'Authorization': 'Bearer '+ token,  
       }
     };
-    console.log(body, config);
+    
     return await axios.put(`${root}profile/admin`, body, config)
+  
+  }
+
+  export const modifyUser = async (body, token) => {
+    
+    let config = {
+      headers: { 
+        'Authorization': 'Bearer '+ token,  
+      }
+    };
+    
+    return await axios.put(`${root}profile`, body, config)
   
   }
   

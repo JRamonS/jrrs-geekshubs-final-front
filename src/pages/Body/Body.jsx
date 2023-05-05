@@ -16,6 +16,7 @@ import { AdmApp } from '../Admin/AdmApp/AdmApp'
 import { DeleteUser } from '../Admin/DeleteUser/DeleteUser'
 import { Services } from '../Servis/Services'
 import { UpdateProfile } from '../Admin/UpdateProfile/UpdateProfile'
+import { UpdateUser } from '../User/UpdateUser/UpdateUser'
 
 
 
@@ -30,6 +31,7 @@ export const Body = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/userProfile' element={<UserProfile/>}/>
         <Route path='/updateProfile' element={<UpdateProfile/>}/>
+        <Route path='/updateUser' element={<UpdateUser/>}/>
         <Route path='/petRegistration' element={<PetRegistration/>}/>
         <Route path='/appointment' element={<Appointment/>}/>
         <Route path='/seeAppointment' element={<SeeAppointment/>}/>

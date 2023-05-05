@@ -89,7 +89,6 @@ export const UpdateProfile = () => {
       }, 1500);
     };
 
-    console.log((upProfile));
 
   return (
     <div className="updateUsersDesing">

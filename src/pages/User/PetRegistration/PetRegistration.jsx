@@ -120,7 +120,7 @@ const checkError = (e) => {
     }, 500);
   };
   
-  console.log(petRegisterAct);
+  
 
   return (
   <div className="petDesign">

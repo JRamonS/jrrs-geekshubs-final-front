@@ -19,7 +19,6 @@ export const AdmApp = () => {
     if (allApointments.length === 0) {
       bringAllUAppointments(ReduxCredentials.credentials.token.token)
         .then((result) => {
-          console.log(result.data.data);
           setLoading(false);
           setAllAppointments(result.data.data);
         })

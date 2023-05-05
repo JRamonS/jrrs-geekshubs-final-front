@@ -26,10 +26,8 @@ export const UserProfile = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  //This useEffect will ALWAYS be executed whenever there are changes to the credentials hook.
   useEffect(() => {
     if (user.name === "") {
-      // console.log(ReduxCredentials.credentials.token.token);
       getUserData(ReduxCredentials.credentials.token.token)
         .then((reply) => {
           setUser({

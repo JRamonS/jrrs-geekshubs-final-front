@@ -15,6 +15,20 @@ export const registerUser = async (body) => {
     return await axios.get(`${root}users`, config);
   }
 
+  export const modifyProfile = async (body, token) => {
+    
+    let config = {
+      headers: { 
+        'Authorization': 'Bearer '+ token,  
+      }
+    };
+    console.log(body, config);
+    return await axios.put(`${root}profile/admin`, body, config)
+  
+  }
+  
+
+
   export const registerPet = async (body, token) => {
     let config = {
       headers: { 

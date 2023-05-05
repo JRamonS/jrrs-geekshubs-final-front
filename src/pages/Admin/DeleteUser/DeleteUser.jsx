@@ -13,6 +13,8 @@ export const DeleteUser = () => {
 
   const userId = detailscredentials.choosenObject.id;
 
+  console.log(detailscredentials);
+
   const [deleteUserAct, setDeleteUserAct] = useState(false);
 
   const [deleteClient, setDeleteClient] = useState({

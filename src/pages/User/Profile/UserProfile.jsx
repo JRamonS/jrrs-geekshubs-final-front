@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import { useSelector } from 'react-redux';
-import { userData } from '../userSlice';
+import { userData } from '../../userSlice';
 import { useNavigate } from 'react-router';
-import { getUserData } from '../../Services/apiCalls';
+import { getUserData } from '../../../Services/apiCalls';
 import { Col, Row } from 'react-bootstrap';
 import "./UserProfile.css"
 

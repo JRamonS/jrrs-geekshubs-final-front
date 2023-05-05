@@ -113,7 +113,7 @@ export const Login = () => {
     setLoginAct(true);
   });
 
-   //This function is executed when the user clicks outside the input or presses the "Tab" key, and validate the data entered by the user.
+   
   const checkError = (e) => {
     let error = "";
 
@@ -138,7 +138,7 @@ export const Login = () => {
   return (
     <div className="loginDesing">
       <Container className="loginContainer"> 
-      <Row className='loginRow loginContainer'>
+      <Row className='loginContainer'>
         <Col>
           <Form>
             <Form.Group controlId="formBasicEmail">

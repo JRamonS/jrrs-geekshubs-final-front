@@ -9,8 +9,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2.5em;
 }
 
-.loginRow{
-    height: 60vh;
-}

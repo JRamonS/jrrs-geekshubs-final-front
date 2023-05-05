@@ -68,26 +68,31 @@ export const PetRegistration = () => {
     }));
   };
 
-  
+
   useEffect(() => {
+
+    for (let error in petError) {
+      if (petError[error] !== "") {
+        setPetRegisterAct(false);
+        return;
+      }
+    }
+
     for (let empty in pet) {
       if (pet[empty] === "") {
         setPetRegisterAct(false);
         return;
       }
     }
-    setPetRegisterAct(true);
-  }, [pet]);
 
-  useEffect(() => {
     for (let validated in valiPet) {
       if (valiPet[validated] === false) {
         setPetRegisterAct(false);
-        return;
       }
     }
+
     setPetRegisterAct(true);
-  }, [valiPet]);
+  }, [pet, valiPet ]);
 
 
 const checkError = (e) => {
@@ -115,6 +120,7 @@ const checkError = (e) => {
     }, 500);
   };
   
+  console.log(petRegisterAct);
 
   return (
   <div className="petDesign">
@@ -147,6 +153,8 @@ const checkError = (e) => {
                 required={true}
                 changeFunction={(e) => inputHandler(e)}
                 blurFunction={(e) => checkError(e)}
+                min={1}
+                max={22}
                 />
                 <Form.Text className="text-danger">
                     {petError.ageError}
@@ -185,7 +193,7 @@ const checkError = (e) => {
               <ButtonAct 
                 className={petRegisterAct ? "registerSendDeac loginSendAct" : "registerSendDeac"}
                 buttonName="Submit"
-                onClick={petRegisterAct? petRegister : () => {}}
+                onClick={petRegisterAct ? petRegister : () => {}}
               />
               </div>
           </Form>

@@ -40,7 +40,6 @@ export const NavBar = () => {
                   </Nav.Link>
                   <Nav.Link as={Link} to="/petRegistration" className="text-white">Pet Registration</Nav.Link>
                   <Nav.Link as={Link} to="/seePet" className="text-white">See Pets</Nav.Link>
-                  <Nav.Link as={Link} to="/appointment" className="text-white">Create App</Nav.Link>
                   <Nav.Link as={Link} to="/seeAppointment" className="text-white">See App</Nav.Link>
                 </>
               )}

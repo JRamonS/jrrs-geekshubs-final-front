@@ -5,15 +5,23 @@ import { userData } from "../../userSlice";
 import { bringPets } from "../../../Services/apiCalls";
 import { Card, Spinner } from "react-bootstrap";
 import { addChoosenPet } from "../../petSlice";
-import { useNavigate } from "react-router";
-
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import { Appointment } from "../Appointment/Appointment";
 
 export const SeePet = () => {
   const [pet, setPet] = useState([]);
-  const navigate = useNavigate();
+
   const ReduxCredentials = useSelector(userData);
+
   const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(true);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     if (pet.length === 0) {
@@ -22,45 +30,28 @@ export const SeePet = () => {
           setPet(result.data.data);
           setLoading(false);
         })
-        .catch((error) => console.log(error))
+        .catch((error) => console.log(error));
     }
   }, [pet]);
 
-
   const petSelected = (pet) => {
-    dispatch(addChoosenPet({ choosenPet: pet}))
-    setTimeout(() => {
-      navigate("/appointment");
-    }, 500);
+    dispatch(addChoosenPet({ choosenPet: pet }));
+  };
 
-    if (loading){
-      return (
-        <div className='spinnerDesign d-flex justify-content-center align-items-center flex-column'>
-          <div><Spinner animation="border" variant="primary"/></div>
-          <div>   <h4>Loading...</h4></div>
-        </div>
-      );
-    }
-  
-  }
-
-
-return (
-  
-  <div className="bgn">
-    <div className="seePetDesign">
-      <h2 className='text-center text-white'>Your Pets</h2>
-      {loading ? (
-        <div className='spinnerDesign d-flex justify-content-center align-items-center flex-column'>
-          <div>
-            <Spinner animation="border" variant="primary"/>
+  return (
+    <div className="bgn">
+      <div className="seePetDesign">
+        <h2 className="text-center text-white">Your Pets</h2>
+        {loading ? (
+          <div className="spinnerDesign d-flex justify-content-center align-items-center flex-column">
+            <div>
+              <Spinner animation="border" variant="primary" />
+            </div>
+            <div className="spinnerDesing">
+              <h4>Loading...</h4>
+            </div>
           </div>
-          <div>
-            <h4>Loading...</h4>
-          </div>
-        </div>
-      ) : (
-        pet.length > 0 ?  (
+        ) : pet.length > 0 ? (
           <div className="petCardContainer">
             {pet.map((pet) => {
               return (
@@ -71,6 +62,28 @@ return (
                       <Card.Title>Age:&nbsp; {pet.age} </Card.Title>
                       <Card.Title>Type:&nbsp; {pet.type} </Card.Title>
                       <Card.Title>Breed:&nbsp; {pet.breed} </Card.Title>
+                      <>
+                        <div className="button-container">
+                          <Button variant="success" onClick={handleShow}>
+                            Create App
+                          </Button>
+
+                          <Modal
+                            show={show}
+                            onHide={handleClose}
+                            backdrop="static"
+                          >
+                            <Modal.Body>
+                              <Appointment></Appointment>
+                            </Modal.Body>
+                            <Modal.Footer>
+                              <Button variant="danger" onClick={handleClose}>
+                                Close
+                              </Button>
+                            </Modal.Footer>
+                          </Modal>
+                        </div>
+                      </>
                     </Card.Body>
                   </Card>
                 </div>
@@ -78,15 +91,9 @@ return (
             })}
           </div>
         ) : (
-          <div>No appointments found.</div>
-        )
-      )}
+          <div className="noUsers text-center">No Pet Found.</div>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
 };
-
-
-
-
-

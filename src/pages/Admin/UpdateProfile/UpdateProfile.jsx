@@ -92,9 +92,9 @@ export const UpdateProfile = () => {
     console.log((upProfile));
 
   return (
-    <div className="updateDesing">
-      <Container className="updateContainer"> 
-        <Row className='updateRow updateContainer'>
+    <div className="updateUsersDesing">
+      <Container className="updateUsersContainer"> 
+        <Row className='updateUsersRow updateUsersContainer'>
           <Col>
             <Form>
               <Form.Group controlId="formBasicPhone">

@@ -1,0 +1,22 @@
+.updateUsersDesing{
+    background-color: #00828c;
+    color: white;
+    font-family: "Myfont";
+    
+    
+}
+
+
+.updateUsersContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.updateUsersRow{
+    height: 56vh;
+    padding: 3em;
+    
+}

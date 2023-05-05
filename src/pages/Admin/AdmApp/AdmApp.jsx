@@ -21,7 +21,6 @@ export const AdmApp = () => {
         .then((result) => {
           console.log(result.data.data);
           setLoading(false);
-          //After fetching the users from the database, we store them in the hook.
           setAllAppointments(result.data.data);
         })
         .catch((error) => console.log(error));

@@ -72,7 +72,7 @@ export const SeeAppointment = () => {
             <div>
               <Spinner animation="border" variant="primary"/>
             </div>
-            <div>
+            <div className="loadingDesing">
               <h4>Loading...</h4>
             </div>
           </div>
@@ -86,7 +86,7 @@ export const SeeAppointment = () => {
                       <Card.Body>
                         <Card.Title>Pet:&nbsp;{appointmentPet.pet.name} </Card.Title>
                         <Card.Title>Date:&nbsp;{dayjs(appointmentPet.dateTime).format("DD-MMM-YYYY hh:mm A")}</Card.Title>
-
+                        <Card.Title>Observation: {appointmentPet.observation}</Card.Title>
                         <Card.Title>Service:&nbsp;{appointmentPet.service.name} </Card.Title>
                         <Card.Title>Duration:&nbsp;{appointmentPet.service.duration} </Card.Title>
                         <Card.Title>Price:&nbsp;{appointmentPet.service.price} </Card.Title>
@@ -129,7 +129,7 @@ export const SeeAppointment = () => {
               })}
             </div>
           ) : (
-            <div>No appointments found.</div>
+            <div className="isnotApp text-center">No appointments found.</div>
           )
         )}
       </div>

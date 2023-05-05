@@ -8,7 +8,8 @@ import { addChoosen } from "../../detailSlice";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { DeleteUser } from "../DeleteUser/DeleteUser";
-import { UpdateProfile } from "../../User/UpdateProfile/UpdateProfile";
+import { UpdateProfile } from "../UpdateProfile/UpdateProfile";
+
 
 export const AdmUser = () => {
   const [users, setUsers] = useState([]);

@@ -15,7 +15,8 @@ import { AdmUser } from '../Admin/AdmUser/AdmUser'
 import { AdmApp } from '../Admin/AdmApp/AdmApp'
 import { DeleteUser } from '../Admin/DeleteUser/DeleteUser'
 import { Services } from '../Servis/Services'
-import { UpdateProfile } from '../User/UpdateProfile/UpdateProfile'
+import { UpdateProfile } from '../Admin/UpdateProfile/UpdateProfile'
+
 
 
 

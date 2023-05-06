@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Services.css";
 import Dog1 from "../../assets/Dog1.png";
 import Bath from "../../assets/Bath.png";
 import CleanTeeth from "../../assets/CleanTeeth.png";
 import NailClipping from "../../assets/NailClipping.png";
 import { Button, Card, Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { userData } from "../userSlice";
 
 export const Services = () => {
+  const [showButton, setShowButton] = useState(true);
+
+  const credentialsRdx = useSelector(userData);
+
+  const user = credentialsRdx.credentials.token;
+
+  useEffect(() => {
+    if (user) {
+      setShowButton(false);
+    } else {
+      setShowButton(true);
+    }
+  }, [user]);
+
   return (
-    /* Main Services with image, descriptions and bootstrap button at the end*/
     <div className="bgcl">
       <div className="bgem">
         <div className="small-container">
-        <h1 className="serviceDesing">Services</h1>
+          <h1 className="serviceDesing">Services</h1>
         </div>
       </div>
       <Container>
@@ -25,8 +40,7 @@ export const Services = () => {
               <h5>Full Aesthetics</h5>
               <div className="service-description">
                 <p>
-                  We have the best haircutting professionals, 
-                  internationally
+                  We have the best haircutting professionals, internationally
                   recognized.
                 </p>
                 <p>Duration: 80min</p>
@@ -70,7 +84,9 @@ export const Services = () => {
             <div className="Desingi">
               <h5>Nail Clippings</h5>
               <div className="service-description">
-                <p>We cut the nails in an efficient and calm way for your pet.</p>
+                <p>
+                  We cut the nails in an efficient and calm way for your pet.
+                </p>
                 <p>Duration: 60min</p>
                 <p>Price: 80$</p>
               </div>
@@ -79,9 +95,7 @@ export const Services = () => {
         </div>
       </Container>
       <div className="btgDesingi ">
-        <Button className="bgte">
-          Book Appointment
-        </Button>
+        {showButton && <Button className="bgte">Book Appointment</Button>}
       </div>
     </div>
   );

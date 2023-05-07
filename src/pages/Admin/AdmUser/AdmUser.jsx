@@ -84,7 +84,7 @@ export const AdmUser = () => {
                           <Card.Title>Phone: {user.phone} </Card.Title>
                           <Card.Title>Address: {user.address} </Card.Title>
                           <>
-                            <div className="button">
+                            <div className="buttons">
                             <Button variant="danger" onClick={handleShow}>
                               DeleUser
                             </Button>
@@ -105,7 +105,7 @@ export const AdmUser = () => {
                               </Modal.Footer>
                             </Modal>
                             </div>
-                            <div className="button">
+                            <div className="buttons">
                             <Button variant="primary" onClick={handleUpUsers}>
                               UpdUser
                             </Button>

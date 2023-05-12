@@ -28,6 +28,9 @@ On this website, users can register as clients and access the page where they ha
 ## Stack
 Technologies used:
 <div align="center">
+<a href="https://www.reactjs.com/">
+    <img src= "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+</a>
 <a href="https://www.expressjs.com/">
     <img src= "https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>
 </a>
@@ -37,6 +40,24 @@ Technologies used:
 <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
     <img src= "https://img.shields.io/badge/javascipt-EFD81D?style=for-the-badge&logo=javascript&logoColor=black"/>
 </a>
+<a href=https://getbootstrap.com/>
+    <img src= "https://img.shields.io/badge/-Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/"/>
+</a>
+<a href=https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5>
+    <img src= "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+</a>
+<a href=https://developer.mozilla.org/en-US/docs/Web/CSS>
+    <img src= "https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+</a>
+<a href=https://www.npmjs.com/>
+    <img src= "https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/>
+</a>
+  
+  
+ 
+  
+
+
  </div>
 
  ## FRONTEND
